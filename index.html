@@ -13,43 +13,33 @@
   .hero-overlay h1{font-size:26px;font-weight:900;line-height:1}
   .hero-overlay p{color:#facc15;font-weight:700;margin-top:5px;font-size:13px}
   .container{padding:16px}
-  
-  /* CATEGORIAS HORIZONTALES QUE RUEDAN */
-  .grid{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding-bottom:10px;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
-  }
+  .grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
   .grid::-webkit-scrollbar{display:none}
-  .card{
-    min-width:105px;
-    height:85px;
-    background:#1e293b;
-    padding:10px;
-    border-radius:14px;
-    text-align:center;
-    cursor:pointer;
-    border:1px solid #334155;
-    flex-shrink:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-  }
-  .card span{font-size:20px;display:block;margin-bottom:4px}
-  .card h3{font-size:10px;font-weight:800;letter-spacing:0.5px}
-  .card:active{transform:scale(0.95);background:#334155}
-
+  .card{min-width:105px;height:85px;background:#1e293b;padding:10px;border-radius:14px;text-align:center;cursor:pointer;border:1px solid #334155;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .card span{font-size:20px;margin-bottom:4px}.card h3{font-size:10px;font-weight:800}
   .view{display:none}.view.active{display:block}
   .form{background:#1e293b;padding:16px;border-radius:16px;margin-top:10px}
-  .form input,.form select,.form textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
-  .btn{background:#facc15;color:#0f172a;padding:12px;width:100%;border:none;border-radius:10px;font-weight:900;margin-top:10px;cursor:pointer}
+  .form input,.form select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;background:#0f172a;color:white;border:1px solid #334155}
+  .label{font-size:11px;color:#facc15;font-weight:700;margin-top:14px;display:block;letter-spacing:1px}
+  .btn{background:#facc15;color:#0f172a;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;margin-top:16px;cursor:pointer}
   .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#1e293b;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #334155}
   .bottom-nav button{background:none;border:none;color:#94a3b8;font-weight:700;font-size:11px}
   .bottom-nav button.active{color:#facc15}
+
+  /* ESTILOS NUEVOS REGISTRO */
+  .cat-selector{display:flex;gap:10px;overflow-x:auto;padding:5px 0 10px 0;scrollbar-width:none}
+  .cat-selector::-webkit-scrollbar{display:none}
+  .cat-opt{min-width:140px;background:#1e293b;border:2px solid #334155;border-radius:12px;padding:14px;text-align:center;cursor:pointer;flex-shrink:0}
+  .cat-opt.active{border-color:#facc15;background:#facc15;color:#0f172a}
+  .cat-opt b{font-size:12px;display:block}
+  .cat-opt small{font-size:10px;opacity:0.8}
+  .plan-scroll{display:flex;gap:12px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .plan-scroll::-webkit-scrollbar{display:none}
+  .plan-card{min-width:160px;background:#0f172a;border:1px solid #334155;border-radius:14px;padding:14px;flex-shrink:0}
+  .plan-card.active{border-color:#facc15;border-width:2px}
+  .plan-card h4{font-size:13px;color:#facc15}
+  .plan-card p{font-size:11px;color:#94a3b8;margin-top:4px}
+  .plan-card .precio{font-size:18px;font-weight:900;margin-top:8px}
 </style>
 </head>
 <body>
@@ -57,10 +47,7 @@
 <div id="view-inicio" class="view active">
   <div class="hero">
     <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800" alt="Niños jugando fútbol">
-    <div class="hero-overlay">
-      <h1>¡BIENVENIDOS<br>CAMPEONES!</h1>
-      <p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p>
-    </div>
+    <div class="hero-overlay"><h1>¡BIENVENIDOS<br>CAMPEONES!</h1><p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p></div>
   </div>
   <div class="container">
     <p style="font-size:12px;color:#94a3b8;margin-bottom:8px">EXPLORA</p>
@@ -69,31 +56,61 @@
       <div class="card" onclick="showView('clases')"><span>⚽</span><h3>CLASES</h3></div>
       <div class="card" onclick="showView('equipo')"><span>👕</span><h3>EQUIPO</h3></div>
       <div class="card" onclick="showView('noticias')"><span>📰</span><h3>NOTICIAS</h3></div>
-      <div class="card" onclick="showView('clases')"><span>🏆</span><h3>TORNEOS</h3></div>
-      <div class="card" onclick="showView('registro')"><span>📍</span><h3>SEDES</h3></div>
-    </div>
-    <div class="form" style="margin-top:20px">
-      <h3>Próximo Entrenamiento</h3>
-      <p id="txt-horario" style="margin-top:8px;color:#cbd5e1;font-size:14px">Lunes a Viernes 4pm - 6pm | Cancha Municipal Dolores Hidalgo</p>
     </div>
   </div>
 </div>
 
-<div id="view-registro" class="view"><div class="container"><h2>Registro</h2><div class="form"><input type="text" placeholder="Nombre del niño"><input type="number" placeholder="Edad"><input type="text" placeholder="WhatsApp papá"><button class="btn">ENVIAR REGISTRO</button></div></div></div>
-<div id="view-clases" class="view"><div class="container"><h2>Clases</h2><div class="form"><p><b>Lunes:</b> Técnica<br><br><b>Miércoles:</b> Táctica<br><br><b>Viernes:</b> Partido</p></div></div></div>
-<div id="view-equipo" class="view"><div class="container"><h2>Equipo</h2><div class="form">Plantilla Sub-11 - Campeones 2024</div></div></div>
-<div id="view-noticias" class="view"><div class="container"><h2>Noticias</h2><div class="form">Ganamos 3-1 el domingo!</div></div></div>
-
-<div id="view-admin" class="view">
+<!-- VISTA REGISTRO NUEVA -->
+<div id="view-registro" class="view">
   <div class="container">
-    <h2>Panel Admin</h2>
+    <h2 style="font-size:20px">Inscripción</h2>
+    
+    <span class="label">1. SELECCIONA LA CATEGORÍA</span>
+    <div class="cat-selector">
+      <div class="cat-opt active" onclick="selectCat(this)"><b>NIÑOS 5 A 8</b><small>Mixto iniciación</small></div>
+      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑAS</b><small>Todas las edades</small></div>
+      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑOS 9 A 12</b><small>Formación avanzada</small></div>
+    </div>
+
     <div class="form">
-      <input id="admin-titulo" value="¡BIENVENIDOS CAMPEONES!">
-      <input id="admin-horario" value="Lunes a Viernes 4pm - 6pm">
-      <button class="btn" onclick="guardarAdmin()">GUARDAR</button>
+      <span class="label">2. INFORMACIÓN DEL JUGADOR</span>
+      <input type="text" placeholder="Nombre completo del niño">
+      <input type="date" placeholder="Fecha de nacimiento">
+      <input type="text" placeholder="CURP del niño" style="text-transform:uppercase">
+      <select>
+        <option>Escolaridad</option>
+        <option>Preescolar</option>
+        <option>Primaria 1°-3°</option>
+        <option>Primaria 4°-6°</option>
+        <option>Secundaria</option>
+      </select>
+
+      <span class="label">3. INFORMACIÓN DEL PADRE / TUTOR</span>
+      <input type="text" placeholder="Nombre completo del padre/tutor">
+      <input type="tel" placeholder="Teléfono WhatsApp">
+
+      <span class="label">4. ELIGE TU PLAN DE INSCRIPCIÓN</span>
+      <div class="plan-scroll">
+        <div class="plan-card active" onclick="selectPlan(this)">
+          <h4>PLAN BÁSICO</h4><p>2 días por semana</p><div class="precio">$450/mes</div>
+        </div>
+        <div class="plan-card" onclick="selectPlan(this)">
+          <h4>PLAN PRO</h4><p>3 días + uniforme</p><div class="precio">$650/mes</div>
+        </div>
+        <div class="plan-card" onclick="selectPlan(this)">
+          <h4>PLAN ÉLITE</h4><p>5 días + torneos</p><div class="precio">$850/mes</div>
+        </div>
+      </div>
+
+      <button class="btn" onclick="alert('¡Datos guardados! Ahora dime que sigue para los planes')">CONTINUAR INSCRIPCIÓN →</button>
     </div>
   </div>
 </div>
+
+<div id="view-clases" class="view"><div class="container"><h2>Clases</h2><div class="form">Lunes, Miércoles y Viernes</div></div></div>
+<div id="view-equipo" class="view"><div class="container"><h2>Equipo</h2><div class="form">Plantilla</div></div></div>
+<div id="view-noticias" class="view"><div class="container"><h2>Noticias</h2><div class="form">Noticias</div></div></div>
+<div id="view-admin" class="view"><div class="container"><h2>Panel Admin</h2><div class="form"><p>Panel para configurar categorías y planes</p></div></div></div>
 
 <div class="bottom-nav">
   <button id="btn-inicio" class="active" onclick="showView('inicio')">🏠<br>INICIO</button>
@@ -105,10 +122,13 @@ function showView(v){
   document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
   document.getElementById('view-'+v).classList.add('active');
 }
-function guardarAdmin(){
-  document.querySelector('.hero-overlay h1').innerHTML = document.getElementById('admin-titulo').value;
-  document.getElementById('txt-horario').innerText = document.getElementById('admin-horario').value;
-  showView('inicio');
+function selectCat(el){
+  document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectPlan(el){
+  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
 }
 </script>
 </body>
