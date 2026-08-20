@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Campeones FC</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+  body{background:#0f172a;color:white;padding-bottom:80px}
+  .hero{position:relative;height:280px;overflow:hidden}
+  .hero img{width:100%;height:100%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(15,23,42,1), rgba(0,0,0,0.2));display:flex;flex-direction:column;justify-content:end;padding:20px}
+  .hero-overlay h1{font-size:28px;font-weight:900;line-height:1}
+  .hero-overlay p{color:#facc15;font-weight:700;margin-top:5px}
+  .container{padding:16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:#1e293b;padding:20px;border-radius:16px;text-align:center;cursor:pointer;border:1px solid #334155}
+  .card span{font-size:28px;display:block;margin-bottom:8px}
+  .card h3{font-size:14px}
+  .view{display:none}.view.active{display:block}
+  .form{background:#1e293b;padding:16px;border-radius:16px;margin-top:10px}
+  .form input,.form select,.form textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
+  .btn{background:#facc15;color:#0f172a;padding:12px;width:100%;border:none;border-radius:10px;font-weight:900;margin-top:10px;cursor:pointer}
+  .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#1e293b;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #334155}
+  .bottom-nav button{background:none;border:none;color:#94a3b8;font-weight:700}
+  .bottom-nav button.active{color:#facc15}
+  .admin-item{background:#1e293b;padding:12px;border-radius:10px;margin:8px 0;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<!-- VISTA INICIO -->
+<div id="view-inicio" class="view active">
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800" alt="Niños jugando fútbol">
+    <div class="hero-overlay">
+      <h1>¡BIENVENIDOS<br>CAMPEONES!</h1>
+      <p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="grid">
+      <div class="card" onclick="showView('registro')"><span>📝</span><h3>REGISTRARSE</h3></div>
+      <div class="card" onclick="showView('clases')"><span>⚽</span><h3>CLASES</h3></div>
+      <div class="card" onclick="showView('equipo')"><span>👕</span><h3>EQUIPO</h3></div>
+      <div class="card" onclick="showView('noticias')"><span>📰</span><h3>NOTICIAS</h3></div>
+    </div>
+    <div class="form" style="margin-top:20px">
+      <h3>Próximo Entrenamiento</h3>
+      <p id="txt-horario" style="margin-top:8px;color:#cbd5e1">Lunes a Viernes 4pm - 6pm | Cancha Municipal Dolores Hidalgo</p>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA REGISTRO -->
+<div id="view-registro" class="view">
+  <div class="container">
+    <h2>Registro de Jugador</h2>
+    <div class="form">
+      <input type="text" placeholder="Nombre del niño">
+      <input type="number" placeholder="Edad">
+      <input type="text" placeholder="WhatsApp del papá">
+      <select><option>Categoría</option><option>Sub-7</option><option>Sub-9</option><option>Sub-11</option><option>Sub-13</option></select>
+      <button class="btn" onclick="alert('¡Registro enviado a Iian!')">ENVIAR REGISTRO</button>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA CLASES -->
+<div id="view-clases" class="view">
+  <div class="container">
+    <h2>Clases y Entrenamientos</h2>
+    <div id="lista-clases" class="form">
+      <p><b>Lunes:</b> Técnica individual</p><br><p><b>Miércoles:</b> Táctica y partido</p><br><p><b>Viernes:</b> Físico y definición</p>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA EQUIPO Y NOTICIAS (similar) -->
+<div id="view-equipo" class="view"><div class="container"><h2>Nuestro Equipo</h2><div class="form" id="lista-equipo">Plantilla Sub-11 - Campeones 2024...</div></div></div>
+<div id="view-noticias" class="view"><div class="container"><h2>Noticias</h2><div class="form" id="lista-noticias">¡Ganamos 3-1 el domingo! Próximo torneo en San Miguel...</div></div></div>
+
+<!-- VISTA ADMIN -->
+<div id="view-admin" class="view">
+  <div class="container">
+    <h2>Panel Administrador</h2>
+    <p style="color:#94a3b8;font-size:12px">Aquí configuras toda la app</p>
+    <div class="form">
+      <label>Texto de Bienvenida</label><input id="admin-titulo" value="¡BIENVENIDOS CAMPEONES!">
+      <label>Horario</label><input id="admin-horario" value="Lunes a Viernes 4pm - 6pm">
+      <label>Imagen de Portada (link)</label><input id="admin-img" value="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800">
+      <button class="btn" onclick="guardarAdmin()">GUARDAR CAMBIOS</button>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <button id="btn-inicio" class="active" onclick="showView('inicio')">🏠<br>INICIO</button>
+  <button id="btn-admin" onclick="showView('admin')">⚙️<br>ADMIN</button>
+</div>
+
+<script>
+function showView(v){
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.bottom-nav button').forEach(e=>e.classList.remove('active'));
+  if(v=='inicio') document.getElementById('btn-inicio').classList.add('active');
+  if(v=='admin') document.getElementById('btn-admin').classList.add('active');
+}
+function guardarAdmin(){
+  document.querySelector('.hero-overlay h1').innerHTML = document.getElementById('admin-titulo').value;
+  document.getElementById('txt-horario').innerText = document.getElementById('admin-horario').value;
+  document.querySelector('.hero img').src = document.getElementById('admin-img').value;
+  alert('¡Guardado! (En versión pro se guarda en base de datos)');
+  showView('inicio');
+}
+</script>
+</body>
+                              </html>
