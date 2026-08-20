@@ -75,12 +75,15 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .btn-cat-eq.active{background:#e8ffe8;border-color:#22c55e;box-shadow:0 0 15px rgba(0,255,136,0.5);color:#0a0a0a}
 .btn-cat-eq .check-eq{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:#00ff88;border-radius:50%;display:none;align-items:center;justify-content:center;color:#000;font-size:12px;font-weight:900;border:2px solid #fff;box-shadow:0 0 10px #00ff88}
 .btn-cat-eq.active .check-eq{display:flex}
-.cancha{margin-top:18px;background:radial-gradient(circle at 50% 20%, #4caf50 0%, #2e7d32 60%, #1b5e20 100%);border-radius:22px;padding:16px 8px 10px 8px;position:relative;border:3px solid #fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.4);min-height:620px;overflow:hidden}
+.cancha{margin-top:18px;background:radial-gradient(circle at 50% 20%, #4caf50 0%, #2e7d32 60%, #1b5e20 100%);border-radius:22px;padding:12px 8px 16px 8px;position:relative;border:3px solid #fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.4);min-height:720px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
 .cancha:before{content:'';position:absolute;left:8px;right:8px;top:8px;bottom:8px;border:2px solid rgba(255,255,255,0.7);border-radius:16px;pointer-events:none}
 .cancha:after{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,0.7);transform:translateX(-50%);pointer-events:none}
 .circulo-central{position:absolute;left:50%;top:50%;width:90px;height:90px;border:2px solid rgba(255,255,255,0.7);border-radius:50%;transform:translate(-50%,-50%)}
-.formacion-label{text-align:center;color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:8px;text-shadow:0 1px 3px #000}
-.linea-jug{ display:flex; justify-content:space-around; align-items:flex-start; margin:10px 0; position:relative; z-index:2}
+.area-grande{position:absolute;width:55%;height:90px;border:2px solid rgba(255,255,255,0.7);left:50%;transform:translateX(-50%)}
+.area-grande.top{top:8px;border-top:none;border-radius:0 0 6px 6px}
+.area-grande.bottom{bottom:8px;border-bottom:none;border-radius:6px 6px 0 0}
+.formacion-label{text-align:center;color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:4px;text-shadow:0 1px 3px #000;position:relative;z-index:2}
+.linea-jug{display:flex;justify-content:space-around;align-items:flex-start;position:relative;z-index:2;padding:2px 0}
 .jug{width:72px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .jug-foto{width:52px;height:52px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
 .jug-dorsal{background:#ef4444;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:10px;margin-top:-8px;position:relative;z-index:3;border:1.5px solid #fff}
@@ -148,12 +151,13 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="btn-cat-eq" id="cat-9-12" onclick="selectEquipoCat('9-12')"><div class="check-eq">✓</div>NIÑOS 9 A 12</div>
 </div>
 <div class="cancha" id="cancha">
-<div class="circulo-central"></div>
-<div class="formacion-label">FORMACIÓN 4-4-2 - TITULAR</div>
+<div class="area-grande top"></div><div class="area-grande bottom"></div><div class="circulo-central"></div>
+<div class="formacion-label">PORTERÍA RIVAL</div>
 <div class="linea-jug" id="linea-delanteros"></div>
 <div class="linea-jug" id="linea-medios"></div>
 <div class="linea-jug" id="linea-defensas"></div>
 <div class="linea-jug" id="linea-portero"></div>
+<div class="formacion-label">NUESTRA PORTERÍA - FORMACIÓN 4-4-2</div>
 </div>
 </div>
   </div>
