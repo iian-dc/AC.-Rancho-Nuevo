@@ -3,91 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academia Campeones</title>
+<title>Academia Campeones FC</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
-  body{background:#f6f7f9;color:#111827;padding-bottom:80px}
-  .hero{position:relative;height:240px}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',-apple-system,sans-serif}
+  body{background:#0a0a0a;color:white;padding-bottom:80px}
+  .hero{position:relative;height:260px;overflow:hidden}
   .hero img{width:100%;height:100%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;flex-direction:column;justify-content:end;padding:20px}
-  .hero-overlay h1{color:white;font-size:28px;font-weight:800;line-height:1}
-  .hero-overlay p{color:white;font-size:13px;margin-top:6px;opacity:0.9}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, #0a0a0a 10%, rgba(0,0,0,0.2));display:flex;flex-direction:column;justify-content:end;padding:22px}
+  .hero-overlay h1{font-size:28px;font-weight:900;letter-spacing:-0.5px;line-height:0.95}
+  .hero-overlay p{color:#ef4444;font-weight:700;margin-top:6px;font-size:12px;letter-spacing:1px}
   .container{padding:16px;max-width:500px;margin:0 auto}
   .grid{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
   .grid::-webkit-scrollbar{display:none}
-  .card{min-width:100px;height:80px;background:white;border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #e5e7eb}
+  .card{min-width:105px;height:88px;background:#171717;border:1px solid #262626;border-radius:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;flex-shrink:0}
   .view{display:none}.view.active{display:block}
-  /* ESTILO GLIDE PARA REGISTRO */
-  .glide-card{background:white;border-radius:16px;padding:16px;margin-top:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);border:1px solid #eef0f3}
-  .glide-label{font-size:12px;font-weight:700;color:#111827;margin:16px 0 8px 0;letter-spacing:0.3px}
-  .glide-input{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #d1d5db;background:#f9fafb;font-size:14px;margin-bottom:10px;outline:none}
-  .glide-input:focus{border-color:#2563eb;background:white}
-  .cat-row{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:4px 0 8px}
-  .cat-row::-webkit-scrollbar{display:none}
-  .cat-pill{min-width:130px;padding:12px;border-radius:12px;background:#f3f4f6;border:2px solid #e5e7eb;text-align:center;flex-shrink:0;cursor:pointer}
-  .cat-pill.active{background:#2563eb;color:white;border-color:#2563eb}
-  .cat-pill b{font-size:12px;display:block}.cat-pill small{font-size:10px;opacity:0.8}
-  .plan-row{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:8px 0}
-  .plan-row::-webkit-scrollbar{display:none}
-  .plan-glide{min-width:175px;background:white;border:2px solid #e5e7eb;border-radius:14px;padding:14px;flex-shrink:0}
-  .plan-glide.active{border-color:#2563eb;background:#eff6ff}
-  .plan-glide h4{font-size:13px;color:#111827}.plan-glide p{font-size:11px;color:#6b7280;margin-top:2px}.precio{font-size:17px;font-weight:800;margin-top:8px;color:#2563eb}
-  .btn-glide{background:#2563eb;color:white;padding:15px;width:100%;border:none;border-radius:12px;font-weight:700;font-size:15px;margin-top:18px}
-  .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #e5e7eb}
-  .bottom-nav button{background:none;border:none;color:#9ca3af;font-weight:600;font-size:11px}
-  .bottom-nav button.active{color:#2563eb}
+  .label{font-size:11px;color:#ef4444;font-weight:800;margin-top:18px;display:block;letter-spacing:1.2px}
+  .form-glide{background:#171717;padding:18px;border-radius:20px;margin-top:12px;border:1px solid #262626}
+  .form-glide input,.form-glide select{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #2a2a2a;background:#0a0a0a;color:white;font-size:14px;outline:none}
+  .form-glide input:focus{border-color:#ef4444}
+  .cat-selector{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:8px 0}
+  .cat-selector::-webkit-scrollbar{display:none}
+  .cat-opt{min-width:145px;background:#171717;border:1.5px solid #2a2a2a;border-radius:14px;padding:14px;text-align:center;flex-shrink:0;cursor:pointer;transition:0.2s}
+  .cat-opt.active{background:white;color:black;border-color:white}
+  .cat-opt b{font-size:12px;display:block}.cat-opt small{font-size:10px;opacity:0.7}
+  .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#111111;display:flex;justify-content:space-around;padding:14px 0;border-top:1px solid #222}
+  .bottom-nav button{background:none;border:none;color:#666;font-weight:700;font-size:11px}
+  .bottom-nav button.active{color:white}
+
+  /* CARTAS DE PLANES ESTILO ELEGANTE RAPPI */
+  .plan-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:12px 4px 16px 4px;scroll-snap-type:x mandatory}
+  .plan-scroll::-webkit-scrollbar{display:none}
+  .plan-carta{min-width:260px;background:white;color:#0a0a0a;border-radius:22px;padding:18px;flex-shrink:0;position:relative;scroll-snap-align:start;box-shadow:0 8px 30px rgba(0,0,0,0.25);border:1.5px solid #e5e5e5;transition:0.25s}
+  .plan-carta.active{border-color:#0a0a0a;transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,0,0,0.35)}
+  .plan-carta .top{display:flex;justify-content:space-between;align-items:start}
+  .plan-carta .cuota{font-size:10px;letter-spacing:1.5px;font-weight:800;color:#ef4444;text-transform:uppercase}
+  .plan-carta .dias{background:#0a0a0a;color:white;font-size:10px;padding:5px 9px;border-radius:20px;font-weight:700}
+  .plan-carta h3{font-size:17px;font-weight:900;margin-top:10px;letter-spacing:-0.3px}
+  .plan-carta .valor{font-size:26px;font-weight:900;margin-top:2px;letter-spacing:-1px}
+  .plan-carta .valor span{font-size:14px;font-weight:600;color:#666}
+  .plan-carta .obs{margin-top:12px;background:#f5f5f5;border-radius:12px;padding:10px 12px;font-size:12px;color:#444}
+  .plan-carta .obs b{color:#0a0a0a}
+  .plan-carta .incluye{margin-top:14px}
+  .plan-carta .incluye li{list-style:none;font-size:12px;padding:6px 0;display:flex;gap:8px;color:#333;border-bottom:1px solid #f0f0f0}
+  .plan-carta .incluye li:last-child{border:none}
+  .btn-elegir{width:100%;margin-top:14px;background:#0a0a0a;color:white;border:none;padding:13px;border-radius:12px;font-weight:800;font-size:13px;letter-spacing:0.5px;cursor:pointer;transition:0.2s}
+  .btn-elegir:hover{background:#ef4444}
+  .plan-carta.active .btn-elegir{background:#ef4444}
+  .check-verde{position:absolute;top:12px;right:12px;width:28px;height:28px;background:#22c55e;border-radius:50%;display:none;align-items:center;justify-content:center;color:white;font-weight:900;font-size:16px;box-shadow:0 4px 12px rgba(34,197,94,0.4)}
+  .plan-carta.active .check-verde{display:flex}
 </style>
 </head>
 <body>
 
 <div id="view-inicio" class="view active">
-  <div class="hero"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800"><div class="hero-overlay"><h1>BIENVENIDOS<br>CAMPEONES</h1><p>Formamos jugadores, creamos personas</p></div></div>
+  <div class="hero"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800"><div class="hero-overlay"><h1>BIENVENIDOS<br>CAMPEONES</h1><p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p></div></div>
   <div class="container"><div class="grid">
-    <div class="card" onclick="showView('registro')">📝<br><b style="font-size:11px;margin-top:4px">REGISTRO</b></div>
-    <div class="card" onclick="showView('clases')">⚽<br><b style="font-size:11px">CLASES</b></div>
-    <div class="card" onclick="showView('equipo')">👕<br><b style="font-size:11px">EQUIPO</b></div>
-    <div class="card" onclick="showView('noticias')">📰<br><b style="font-size:11px">NOTICIAS</b></div>
+    <div class="card" onclick="showView('registro')"><span style="font-size:22px">📝</span><h3 style="font-size:10px;margin-top:5px;font-weight:800">REGISTRARSE</h3></div>
+    <div class="card" onclick="showView('clases')"><span style="font-size:22px">⚽</span><h3 style="font-size:10px;margin-top:5px">CLASES</h3></div>
+    <div class="card" onclick="showView('equipo')"><span style="font-size:22px">👕</span><h3 style="font-size:10px;margin-top:5px">EQUIPO</h3></div>
+    <div class="card" onclick="showView('noticias')"><span style="font-size:22px">📰</span><h3 style="font-size:10px;margin-top:5px">NOTICIAS</h3></div>
   </div></div>
 </div>
 
 <div id="view-registro" class="view">
   <div class="container">
-    <h2 style="font-size:22px;font-weight:800">Registro de Jugador</h2>
+    <h2 style="font-size:24px;font-weight:900;letter-spacing:-0.5px">Inscripción</h2>
     
-    <div class="glide-label">1. SELECCIONA CATEGORÍA</div>
-    <div class="cat-row">
-      <div class="cat-pill active" onclick="selCat(this)"><b>NIÑOS 5 A 8</b><small>Mixto</small></div>
-      <div class="cat-pill" onclick="selCat(this)"><b>NIÑAS</b><small>Todas las edades</small></div>
-      <div class="cat-pill" onclick="selCat(this)"><b>NIÑOS 9 A 12</b><small>Avanzado</small></div>
+    <span class="label">1. CATEGORÍA</span>
+    <div class="cat-selector">
+      <div class="cat-opt active" onclick="selectCat(this)"><b>NIÑOS 5 A 8</b><small>Iniciación</small></div>
+      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑAS</b><small>Todas las edades</small></div>
+      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑOS 9 A 12</b><small>Avanzado</small></div>
     </div>
 
-    <div class="glide-card">
-      <div class="glide-label" style="margin-top:0">2. INFORMACIÓN DEL JUGADOR</div>
-      <input class="glide-input" placeholder="Nombre completo del niño">
-      <input class="glide-input" type="date">
-      <input class="glide-input" placeholder="CURP">
-      <select class="glide-input"><option>Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
+    <div class="form-glide">
+      <span class="label" style="margin-top:0;color:white">2. INFORMACIÓN DEL JUGADOR</span>
+      <input type="text" placeholder="Nombre completo del niño">
+      <input type="date">
+      <input type="text" placeholder="CURP">
+      <select><option>Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
 
-      <div class="glide-label">3. INFORMACIÓN DEL PADRE / TUTOR</div>
-      <input class="glide-input" placeholder="Nombre completo del padre/tutor">
-      <input class="glide-input" type="tel" placeholder="Teléfono WhatsApp">
+      <span class="label" style="color:white">3. PADRE / TUTOR</span>
+      <input type="text" placeholder="Nombre completo del padre/tutor">
+      <input type="tel" placeholder="Teléfono WhatsApp">
 
-      <div class="glide-label">4. PLAN DE INSCRIPCIÓN</div>
-      <div class="plan-row">
-        <div class="plan-glide active" onclick="selPlan(this)"><h4>Plan Básico</h4><p>2 días por semana</p><div class="precio">$450/mes</div></div>
-        <div class="plan-glide" onclick="selPlan(this)"><h4>Plan Pro</h4><p>3 días + uniforme</p><div class="precio">$650/mes</div></div>
-        <div class="plan-glide" onclick="selPlan(this)"><h4>Plan Élite</h4><p>5 días + torneos</p><div class="precio">$850/mes</div></div>
+      <span class="label" style="color:white">4. PLAN DE INSCRIPCIÓN</span>
+      <div class="plan-scroll">
+        
+        <!-- PLAN 1 - 150 -->
+        <div class="plan-carta active" id="plan1" onclick="selectPlan('plan1')">
+          <div class="check-verde">✓</div>
+          <div class="top"><span class="cuota">Cuota Mensual</span><span class="dias">30 DÍAS</span></div>
+          <h3>Plan Individual</h3>
+          <div class="valor">$150 <span>MXN</span></div>
+          <div class="obs"><b>Observaciones:</b> 1 niño o niña</div>
+          <ul class="incluye">
+            <li>⚽ Formación técnica y táctica</li>
+            <li>❤️ Valores deportivos</li>
+            <li>🎯 Material de trabajo</li>
+          </ul>
+          <button class="btn-elegir" onclick="selectPlan('plan1')">ELEGIR</button>
+        </div>
+
+        <!-- PLAN 2 - 250 -->
+        <div class="plan-carta" id="plan2" onclick="selectPlan('plan2')">
+          <div class="check-verde">✓</div>
+          <div class="top"><span class="cuota">Cuota Mensual</span><span class="dias">30 DÍAS</span></div>
+          <h3>Plan Dúo</h3>
+          <div class="valor">$250 <span>MXN</span></div>
+          <div class="obs"><b>Observaciones:</b> 2 niños o niñas</div>
+          <ul class="incluye">
+            <li>⚽ Formación técnica y táctica</li>
+            <li>❤️ Valores deportivos</li>
+            <li>🎯 Material de trabajo</li>
+          </ul>
+          <button class="btn-elegir" onclick="selectPlan('plan2')">ELEGIR</button>
+        </div>
+
+        <!-- PLAN 3 - 300 -->
+        <div class="plan-carta" id="plan3" onclick="selectPlan('plan3')">
+          <div class="check-verde">✓</div>
+          <div class="top"><span class="cuota">Cuota Mensual</span><span class="dias">30 DÍAS</span></div>
+          <h3>Plan Familiar</h3>
+          <div class="valor">$300 <span>MXN</span></div>
+          <div class="obs"><b>Observaciones:</b> 3 niños o niñas</div>
+          <ul class="incluye">
+            <li>⚽ Formación técnica y táctica</li>
+            <li>❤️ Valores deportivos</li>
+            <li>🎯 Material de trabajo</li>
+          </ul>
+          <button class="btn-elegir" onclick="selectPlan('plan3')">ELEGIR</button>
+        </div>
+
       </div>
 
-      <button class="btn-glide">Continuar Inscripción →</button>
+      <button style="width:100%;margin-top:10px;background:#ef4444;color:white;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px;letter-spacing:0.8px">CONTINUAR INSCRIPCIÓN →</button>
     </div>
   </div>
 </div>
 
-<div id="view-clases" class="view"><div class="container"><div class="glide-card">Clases Lunes a Viernes</div></div></div>
-<div id="view-equipo" class="view"><div class="container"><div class="glide-card">Equipo</div></div></div>
-<div id="view-noticias" class="view"><div class="container"><div class="glide-card">Noticias</div></div></div>
-<div id="view-admin" class="view"><div class="container"><div class="glide-card">Panel Admin</div></div></div>
+<div id="view-clases" class="view"><div class="container"><div class="form-glide">Clases</div></div></div>
+<div id="view-equipo" class="view"><div class="container"><div class="form-glide">Equipo</div></div></div>
+<div id="view-noticias" class="view"><div class="container"><div class="form-glide">Noticias</div></div></div>
+<div id="view-admin" class="view"><div class="container"><div class="form-glide">Admin</div></div></div>
 
 <div class="bottom-nav">
   <button class="active" onclick="showView('inicio')">🏠<br>INICIO</button>
@@ -96,8 +154,11 @@
 
 <script>
 function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active')}
-function selCat(el){document.querySelectorAll('.cat-pill').forEach(c=>c.classList.remove('active'));el.classList.add('active')}
-function selPlan(el){document.querySelectorAll('.plan-glide').forEach(c=>c.classList.remove('active'));el.classList.add('active')}
+function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active')}
+function selectPlan(id){
+  document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 </script>
 </body>
 </html>
