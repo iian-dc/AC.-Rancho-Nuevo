@@ -66,11 +66,8 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .ent-badge{position:absolute;bottom:12px;right:12px;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:0.5px;background:#fff}
 .badge-confirmado{color:#00c853;border:1.5px solid #00ff88;box-shadow:0 0 12px rgba(0,255,136,0.7),0 0 22px rgba(0,255,136,0.3)}
 .badge-cancelado{color:#ff1744;border:1.5px solid #ff1744;box-shadow:0 0 12px rgba(255,23,68,0.7),0 0 22px rgba(255,23,68,0.3)}
-.aviso-scroll{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:10px 2px 20px 2px;scroll-snap-type:x mandatory}
-.aviso-scroll::-webkit-scrollbar{display:none}
-.aviso-card{min-width:210px;background:#fffbe6;border:1.5px solid #ffe082;border-radius:16px;padding:14px;flex-shrink:0;scroll-snap-align:start;position:relative}
-.aviso-card.tip{background:#e8f5e9;border-color:#a5d6a7}
-.aviso-card.cambio{background:#e3f2fd;border-color:#90caf9}
+.aviso-lista{display:flex;flex-direction:column;gap:12px;padding:10px 0 20px 0}
+.aviso-card{background:#f9f9f9;border:1.5px solid #efefef;border-radius:16px;padding:14px}
 .aviso-card .aviso-titulo{font-size:11px;font-weight:900;color:#0a0a0a;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:6px}
 .aviso-card .aviso-text{font-size:12px;color:#333;line-height:1.4}
 </style>
@@ -133,16 +130,16 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 </div>
 
 <span class="label-titulo">Avisos importantes</span>
-<div class="aviso-scroll">
-<div class="aviso-card tip"><div class="aviso-titulo">💡 TIP</div><div class="aviso-text">Traer tachones limpios y botella de agua grande. Llegar 15 min antes.</div></div>
-<div class="aviso-card cambio"><div class="aviso-titulo">⏰ CAMBIO DE HORARIO</div><div class="aviso-text">Sábado 23 entrenamos con uniforme blanco oficial de Ac. Rancho Nuevo.</div></div>
+<div class="aviso-lista">
+<div class="aviso-card"><div class="aviso-titulo">💡 TIP</div><div class="aviso-text">Traer tachones limpios y botella de agua grande. Llegar 15 min antes.</div></div>
+<div class="aviso-card"><div class="aviso-titulo">⏰ CAMBIO DE HORARIO</div><div class="aviso-text">Sábado 23 entrenamos con uniforme blanco oficial de Ac. Rancho Nuevo.</div></div>
 <div class="aviso-card"><div class="aviso-titulo">👕 UNIFORME</div><div class="aviso-text">Lunes y miércoles: uniforme rojo. Viernes: playera de entrenamiento negra.</div></div>
-<div class="aviso-card tip"><div class="aviso-titulo">📢 AVISO</div><div class="aviso-text">Padres favor de no ingresar a cancha durante entrenamiento.</div></div>
+<div class="aviso-card"><div class="aviso-titulo">📢 AVISO</div><div class="aviso-text">Padres favor de no ingresar a cancha durante entrenamiento.</div></div>
 </div>
 
 </div>
-</div>
-<div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
+                                                                    </div>
+                                                                    <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
 <div style="padding:20px 16px 10px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:14px;position:sticky;top:0;background:#fff"><div class="btn-back" onclick="cerrarConfirmar()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div><h2 style="font-size:18px;font-weight:900">Confirmar - Ac. Rancho Nuevo</h2><p style="font-size:12px;color:#888">Revisa tus datos</p></div></div>
 <div style="padding:16px;max-width:500px;margin:0 auto">
 <img id="c-foto" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #22c55e;margin:0 auto 10px;display:none">
