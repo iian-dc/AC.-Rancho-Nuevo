@@ -63,13 +63,9 @@
   .total-box{background:#0a0a0a;color:white;border-radius:16px;padding:16px;margin-top:12px}
   .total-box .row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
   .total-box .row.total{font-size:18px;font-weight:900;margin-top:6px;border-top:1px solid #333;padding-top:10px}
-  /* TOAST PEQUEÑO DE ERROR */
   #toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0a0a;color:white;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:0.3s;z-index:200;pointer-events:none;max-width:90%;text-align:center}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  /* INPUT FECHA CON PLACEHOLDER */
   .date-wrapper{position:relative}
-  .date-wrapper input[type="text"]{color:#0a0a0a}
-  .date-wrapper input[type="date"]{color:#0a0a0a}
   .date-placeholder{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#999;font-size:14px;pointer-events:none}
   .date-wrapper.has-value .date-placeholder{display:none}
 </style>
@@ -98,26 +94,21 @@
     <div class="form-glide">
       <span class="label-titulo">2. Información del jugador</span>
       <input id="inp-nombre" type="text" placeholder="Nombre completo del niño">
-      
       <div class="date-wrapper" id="dateWrapper">
         <span class="date-placeholder">Seleccionar fecha de nacimiento</span>
         <input id="inp-fecha" type="date" oninput="checkDate(this)" onchange="checkDate(this)">
       </div>
-
       <input id="inp-curp" type="text" placeholder="CURP">
       <select id="inp-escolaridad"><option value="">Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
-
       <span class="label-titulo">3. Padre / Tutor</span>
       <input id="inp-padre" type="text" placeholder="Nombre completo del padre/tutor">
       <input id="inp-tel" type="tel" placeholder="Teléfono WhatsApp">
-
       <span class="label-titulo">4. Plan de inscripción</span>
       <div class="plan-scroll" id="plan-container">
         <div class="plan-carta" id="plan1" onclick="selectPlan('plan1',150)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$150 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (1) Niño</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
         <div class="plan-carta" id="plan2" onclick="selectPlan('plan2',250)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$250 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (2) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
         <div class="plan-carta" id="plan3" onclick="selectPlan('plan3',300)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$300 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (3) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
       </div>
-
       <button onclick="abrirConfirmar()" style="width:100%;margin-top:10px;background:#0a0a0a;color:white;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px">CONTINUAR INSCRIPCIÓN</button>
     </div>
   </div>
@@ -151,7 +142,7 @@
         <div class="row total"><span>Total a pagar</span><b id="c-total">$0 MXN</b></div>
       </div>
     </div>
-    <button onclick="continuarFinal()" style="width:100%;background:#22c55e;color:white;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:15px;margin-top:8px">CONTINUAR</button>
+    <button onclick="enviarWhatsApp()" style="width:100%;background:#22c55e;color:white;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:15px;margin-top:8px">CONTINUAR</button>
   </div>
 </div>
 
@@ -165,38 +156,30 @@
 <div class="bottom-nav"><button class="active" onclick="showView('inicio')">🏠<br>INICIO</button><button onclick="showView('admin')">⚙️<br>ADMIN</button></div>
 
 <script>
-let planSeleccionado=null, precioSeleccionado=0, categoriaSeleccionada="";
+let planSeleccionado=null, precioSeleccionado=0, categoriaSeleccionada="", fechaInicioGlobal="", fechaVenceGlobal="";
 function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active')}
-function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active');categoriaSeleccionada=el.querySelector('b').innerText;document.getElementById('cat-container').style.border="none";}
-function selectPlan(id,precio){document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));document.getElementById(id).classList.add('active');planSeleccionado=id;precioSeleccionado=precio;document.getElementById('plan-container').style.border="none";}
+function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active');categoriaSeleccionada=el.querySelector('b').innerText;}
+function selectPlan(id,precio){document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));document.getElementById(id).classList.add('active');planSeleccionado=id;precioSeleccionado=precio;}
 function calcularEdad(fecha){if(!fecha) return "-";let hoy=new Date();let nac=new Date(fecha);let edad=hoy.getFullYear()-nac.getFullYear();let m=hoy.getMonth()-nac.getMonth();if(m<0||(m===0&&hoy.getDate()<nac.getDate())){edad--}return edad+" años"}
 function formatearFecha(d){return d.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}
 function checkDate(inp){let wrap=document.getElementById('dateWrapper');if(inp.value){wrap.classList.add('has-value')}else{wrap.classList.remove('has-value')}}
-function showToast(msg){
-  let t=document.getElementById('toast');
-  t.innerText=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
+function showToast(msg){let t=document.getElementById('toast');t.innerText=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
 function abrirConfirmar(){
-  // Limpiar errores
   document.querySelectorAll('.input-error').forEach(e=>e.classList.remove('input-error'));
-
   let nombre=document.getElementById('inp-nombre');
   let fecha=document.getElementById('inp-fecha');
   let curp=document.getElementById('inp-curp');
   let esc=document.getElementById('inp-escolaridad');
   let padre=document.getElementById('inp-padre');
   let tel=document.getElementById('inp-tel');
-
-  if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");document.getElementById('cat-container').scrollIntoView({behavior:'smooth'});return;}
-  if(!nombre.value.trim()){showToast("⚠️ Falta llenar Nombre completo del niño");nombre.classList.add('input-error');nombre.focus();return;}
-  if(!fecha.value){showToast("⚠️ Falta seleccionar Fecha de nacimiento");document.getElementById('dateWrapper').querySelector('input').classList.add('input-error');return;}
-  if(!curp.value.trim()){showToast("⚠️ Falta llenar CURP");curp.classList.add('input-error');curp.focus();return;}
-  if(!esc.value){showToast("⚠️ Falta seleccionar Escolaridad");esc.classList.add('input-error');esc.focus();return;}
-  if(!padre.value.trim()){showToast("⚠️ Falta llenar Nombre del padre/tutor");padre.classList.add('input-error');padre.focus();return;}
-  if(!tel.value.trim()){showToast("⚠️ Falta llenar Teléfono WhatsApp");tel.classList.add('input-error');tel.focus();return;}
-  if(!planSeleccionado){showToast("⚠️ Selecciona un plan de inscripción");document.getElementById('plan-container').scrollIntoView({behavior:'smooth'});return;}
+  if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");return;}
+  if(!nombre.value.trim()){showToast("⚠️ Falta llenar Nombre completo del niño");nombre.classList.add('input-error');return;}
+  if(!fecha.value){showToast("⚠️ Falta seleccionar Fecha de nacimiento");return;}
+  if(!curp.value.trim()){showToast("⚠️ Falta llenar CURP");curp.classList.add('input-error');return;}
+  if(!esc.value){showToast("⚠️ Falta seleccionar Escolaridad");esc.classList.add('input-error');return;}
+  if(!padre.value.trim()){showToast("⚠️ Falta llenar Nombre del padre/tutor");padre.classList.add('input-error');return;}
+  if(!tel.value.trim()){showToast("⚠️ Falta llenar Teléfono WhatsApp");tel.classList.add('input-error');return;}
+  if(!planSeleccionado){showToast("⚠️ Selecciona un plan de inscripción");return;}
 
   document.getElementById('c-nombre').innerText=nombre.value;
   document.getElementById('c-fecha').innerText=fecha.value;
@@ -212,13 +195,63 @@ function abrirConfirmar(){
   let hoy=new Date();
   let inicio=new Date(hoy);inicio.setDate(hoy.getDate()+1);
   let vence=new Date(inicio);vence.setDate(inicio.getDate()+30);
-  document.getElementById('c-inicio').innerText=formatearFecha(inicio);
-  document.getElementById('c-vence').innerText=formatearFecha(vence);
-
+  fechaInicioGlobal=formatearFecha(inicio);
+  fechaVenceGlobal=formatearFecha(vence);
+  document.getElementById('c-inicio').innerText=fechaInicioGlobal;
+  document.getElementById('c-vence').innerText=fechaVenceGlobal;
   document.getElementById('modal-confirmar').classList.add('active');
 }
 function cerrarConfirmar(){document.getElementById('modal-confirmar').classList.remove('active');}
-function continuarFinal(){alert("Inscripción confirmada por $"+precioSeleccionado+" MXN");cerrarConfirmar();}
+
+function enviarWhatsApp(){
+  let nombre=document.getElementById('inp-nombre').value;
+  let fecha=document.getElementById('inp-fecha').value;
+  let edad=document.getElementById('c-edad').innerText;
+  let curp=document.getElementById('inp-curp').value;
+  let esc=document.getElementById('inp-escolaridad').value;
+  let padre=document.getElementById('inp-padre').value;
+  let tel=document.getElementById('inp-tel').value;
+  let plan=document.getElementById('c-plan').innerText;
+
+  let mensaje=`*🏆 NUEVA INSCRIPCIÓN - ACADEMIA CAMPEONES FC*%0A%0A`+
+  `*--- FACTURA DE INSCRIPCIÓN --*%0A%0A`+
+  `*Datos del participante*%0A`+
+  `Nombre completo: ${nombre}%0A`+
+  `Fecha de nacimiento: ${fecha}%0A`+
+  `Edad: ${edad}%0A`+
+  `CURP: ${curp}%0A`+
+  `Escolaridad: ${esc}%0A`+
+  `Categoría: ${categoriaSeleccionada}%0A%0A`+
+  `*Datos del padre/madre*%0A`+
+  `Nombre completo: ${padre}%0A`+
+  `Teléfono de contacto: ${tel}%0A%0A`+
+  `*Resumen de pago*%0A`+
+  `Plan seleccionado: ${plan}%0A`+
+  `Fecha de inicio: ${fechaInicioGlobal}%0A`+
+  `Fecha de vencimiento: ${fechaVenceGlobal}%0A`+
+  `Subtotal: $${precioSeleccionado} MXN%0A`+
+  `*Total a pagar: $${precioSeleccionado} MXN*%0A%0A`+
+  `✅ Pendiente de validación`;
+
+  window.open(`https://wa.me/573242827963?text=${mensaje}`,'_blank');
+
+  // RESETEAR TODO
+  setTimeout(()=>{
+    document.getElementById('inp-nombre').value="";
+    document.getElementById('inp-fecha').value="";
+    document.getElementById('inp-curp').value="";
+    document.getElementById('inp-escolaridad').value="";
+    document.getElementById('inp-padre').value="";
+    document.getElementById('inp-tel').value="";
+    document.getElementById('dateWrapper').classList.remove('has-value');
+    document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));
+    document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));
+    categoriaSeleccionada=""; planSeleccionado=null; precioSeleccionado=0;
+    cerrarConfirmar();
+    showView('inicio');
+    showToast("✅ Datos enviados y formulario reseteado");
+  },500);
+}
 </script>
 </body>
-</html>
+                                      </html>
