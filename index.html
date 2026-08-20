@@ -57,6 +57,13 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .clases-banner-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.7) 20%,rgba(0,0,0,0.1));display:flex;align-items:center;padding:18px}
 .clases-banner-overlay h3{color:#fff;font-size:20px;font-weight:900;line-height:1.1;max-width:200px;text-transform:uppercase}
 .clases-banner-overlay h3 span{color:#22c55e;display:block}
+.ent-card{background:#fff;border:1.5px solid #efefef;border-radius:18px;padding:16px;margin-top:14px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.ent-card h4{font-size:14px;font-weight:900;color:#0a0a0a;margin-bottom:12px;text-transform:uppercase}
+.ent-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+.ent-row span{color:#888}.ent-row b{color:#0a0a0a;font-weight:700}
+.btn-estado{width:100%;margin-top:12px;padding:12px;border:none;border-radius:12px;font-weight:900;font-size:13px;cursor:pointer;letter-spacing:0.5px}
+.btn-confirmado{background:#00ff88;color:#000;box-shadow:0 0 15px rgba(0,255,136,0.6),0 0 30px rgba(0,255,136,0.3);border:1.5px solid #00ff88}
+.btn-cancelado{background:#ff0040;color:#fff;box-shadow:0 0 15px rgba(255,0,64,0.6),0 0 30px rgba(255,0,64,0.3);border:1.5px solid #ff0040}
 </style>
 </head>
 <body>
@@ -94,14 +101,26 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div id="view-clases" class="view">
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Entrenamientos</h2></div>
-<div class="clases-banner">
-<img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800">
-<div class="clases-banner-overlay"><h3>FORMAMOS JUGADORES <span>CONSTRUIMOS PERSONAS</span></h3></div>
+<div class="clases-banner"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800"><div class="clases-banner-overlay"><h3>FORMAMOS JUGADORES <span>CONSTRUIMOS PERSONAS</span></h3></div></div>
+
+<div class="ent-card">
+<h4>Entrenamiento #1</h4>
+<div class="ent-row"><span>Fecha del entrenamiento</span><b>22 Agosto 2026</b></div>
+<div class="ent-row"><span>Categoría</span><b>NIÑOS 5 A 8</b></div>
+<div class="ent-row"><span>Horario</span><b>4:00 PM - 6:00 PM</b></div>
+<div class="ent-row"><span>Cancha</span><b>Rancho Nuevo - Cancha 1</b></div>
+<button class="btn-estado btn-confirmado" onclick="toggleEstado(this)">✅ CONFIRMADO</button>
 </div>
-<div style="margin-top:18px;background:#f9f9f9;border:1px solid #efefef;border-radius:16px;padding:16px">
-<h4 style="font-size:12px;color:#ef4444;font-weight:900;margin-bottom:10px">HORARIOS AC. RANCHO NUEVO</h4>
-<div style="font-size:13px;line-height:1.6;color:#222">⚽ Lunes a Viernes: 4:00 PM - 6:00 PM<br>⚽ Sábados: 8:00 AM - 10:00 AM<br>📍 Campo Rancho Nuevo<br>👕 Traer tachones y agua</div>
+
+<div class="ent-card">
+<h4>Entrenamiento #2</h4>
+<div class="ent-row"><span>Fecha del entrenamiento</span><b>23 Agosto 2026</b></div>
+<div class="ent-row"><span>Categoría</span><b>NIÑAS</b></div>
+<div class="ent-row"><span>Horario</span><b>8:00 AM - 10:00 AM</b></div>
+<div class="ent-row"><span>Cancha</span><b>Rancho Nuevo - Cancha 2</b></div>
+<button class="btn-estado btn-cancelado" onclick="toggleEstado(this)">❌ CANCELADO</button>
 </div>
+
 </div>
 </div>
 <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
@@ -131,6 +150,7 @@ function formatearFecha(d){return d.toLocaleDateString('es-MX',{day:'numeric',mo
 function checkDate(i){let w=document.getElementById('dateWrapper');if(i.value)w.classList.add('has-value');else w.classList.remove('has-value')}
 function showToast(m){let t=document.getElementById('toast');t.innerText=m;t.style.opacity=1;t.style.transform="translateX(-50%) translateY(0)";setTimeout(()=>{t.style.opacity=0;t.style.transform="translateX(-50%) translateY(20px)"},3000)}
 function previewFoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(ev){fotoBase64=ev.target.result;document.getElementById('imgPreview').src=fotoBase64;document.getElementById('fotoPreview').classList.add('has-foto')};r.readAsDataURL(f)}
+function toggleEstado(btn){if(btn.classList.contains('btn-confirmado')){btn.classList.remove('btn-confirmado');btn.classList.add('btn-cancelado');btn.innerText="❌ CANCELADO"}else{btn.classList.remove('btn-cancelado');btn.classList.add('btn-confirmado');btn.innerText="✅ CONFIRMADO"}}
 function abrirConfirmar(){
 let n=document.getElementById('inp-nombre'),f=document.getElementById('inp-fecha'),c=document.getElementById('inp-curp'),es=document.getElementById('inp-escolaridad'),p=document.getElementById('inp-padre'),t=document.getElementById('inp-tel');
 if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");return}
@@ -160,4 +180,4 @@ window.location.href=url;
 function cargarAdmin(){let l=document.getElementById('listaAdmin'),ins=JSON.parse(localStorage.getItem('inscritos')||'[]');if(ins.length===0){l.innerHTML="<p style='text-align:center;color:#999;margin-top:30px'>Aún no hay inscritos</p>";return}l.innerHTML=ins.map(i=>`<div style="background:#fff;border:1.5px solid #efefef;border-radius:16px;padding:14px;margin-bottom:12px;display:flex;gap:12px;align-items:center"><img src="${i.foto||'https://via.placeholder.com/100'}" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #22c55e"><div><b>${i.nombre} - ${i.categoria}</b><br><span style="font-size:11px;color:#666">${i.padre} - ${i.tel} | ${i.plan}</span></div></div>`).join('')}
 </script>
 </body>
-  </html>
+</html>
