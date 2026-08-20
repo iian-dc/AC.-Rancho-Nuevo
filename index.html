@@ -70,6 +70,22 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .aviso-card{background:#f9f9f9;border:1.5px solid #efefef;border-radius:16px;padding:14px}
 .aviso-card .aviso-titulo{font-size:11px;font-weight:900;color:#0a0a0a;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:6px}
 .aviso-card .aviso-text{font-size:12px;color:#333;line-height:1.4}
+.cat-equipo{display:flex;gap:10px;margin-top:10px}
+.btn-cat-eq{flex:1;background:#fff;border:1.5px solid #efefef;border-radius:14px;padding:12px;text-align:center;font-size:12px;font-weight:800;cursor:pointer;position:relative;transition:0.2s}
+.btn-cat-eq.active{background:#e8ffe8;border-color:#22c55e;box-shadow:0 0 15px rgba(0,255,136,0.5);color:#0a0a0a}
+.btn-cat-eq .check-eq{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:#00ff88;border-radius:50%;display:none;align-items:center;justify-content:center;color:#000;font-size:12px;font-weight:900;border:2px solid #fff;box-shadow:0 0 10px #00ff88}
+.btn-cat-eq.active .check-eq{display:flex}
+.cancha{margin-top:18px;background:radial-gradient(circle at 50% 20%, #4caf50 0%, #2e7d32 60%, #1b5e20 100%);border-radius:22px;padding:16px 8px 10px 8px;position:relative;border:3px solid #fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.4);min-height:620px;overflow:hidden}
+.cancha:before{content:'';position:absolute;left:8px;right:8px;top:8px;bottom:8px;border:2px solid rgba(255,255,255,0.7);border-radius:16px;pointer-events:none}
+.cancha:after{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,0.7);transform:translateX(-50%);pointer-events:none}
+.circulo-central{position:absolute;left:50%;top:50%;width:90px;height:90px;border:2px solid rgba(255,255,255,0.7);border-radius:50%;transform:translate(-50%,-50%)}
+.formacion-label{text-align:center;color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:8px;text-shadow:0 1px 3px #000}
+.linea-jug{ display:flex; justify-content:space-around; align-items:flex-start; margin:10px 0; position:relative; z-index:2}
+.jug{width:72px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.jug-foto{width:52px;height:52px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+.jug-dorsal{background:#ef4444;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:10px;margin-top:-8px;position:relative;z-index:3;border:1.5px solid #fff}
+.jug-nombre{color:#fff;font-size:9px;font-weight:800;margin-top:4px;line-height:1.1;text-shadow:0 1px 2px #000;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jug-pos{color:#c8e6c9;font-size:8px;font-weight:700}
 </style>
 </head>
 <body>
@@ -108,27 +124,10 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Entrenamientos</h2></div>
 <div class="clases-banner"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800"><div class="clases-banner-overlay"><h3>FORMAMOS JUGADORES <span>CONSTRUIMOS PERSONAS</span></h3></div></div>
-
 <div class="ent-scroll">
-<div class="ent-card-min">
-<div class="ent-titulo">Entrenamiento #1</div>
-<div class="ent-dato"><span>Fecha del entrenamiento</span>22 Agosto 2026</div>
-<div class="ent-dato"><span>Categoría</span>NIÑOS 5 A 8</div>
-<div class="ent-dato"><span>Hora del entrenamiento</span>4:00 PM - 6:00 PM</div>
-<div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 1</div>
-<div class="ent-badge badge-confirmado">CONFIRMADO</div>
+<div class="ent-card-min"><div class="ent-titulo">Entrenamiento #1</div><div class="ent-dato"><span>Fecha del entrenamiento</span>22 Agosto 2026</div><div class="ent-dato"><span>Categoría</span>NIÑOS 5 A 8</div><div class="ent-dato"><span>Hora del entrenamiento</span>4:00 PM - 6:00 PM</div><div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 1</div><div class="ent-badge badge-confirmado">CONFIRMADO</div></div>
+<div class="ent-card-min"><div class="ent-titulo">Entrenamiento #2</div><div class="ent-dato"><span>Fecha del entrenamiento</span>23 Agosto 2026</div><div class="ent-dato"><span>Categoría</span>NIÑAS</div><div class="ent-dato"><span>Hora del entrenamiento</span>8:00 AM - 10:00 AM</div><div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 2</div><div class="ent-badge badge-cancelado">CANCELADO</div></div>
 </div>
-
-<div class="ent-card-min">
-<div class="ent-titulo">Entrenamiento #2</div>
-<div class="ent-dato"><span>Fecha del entrenamiento</span>23 Agosto 2026</div>
-<div class="ent-dato"><span>Categoría</span>NIÑAS</div>
-<div class="ent-dato"><span>Hora del entrenamiento</span>8:00 AM - 10:00 AM</div>
-<div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 2</div>
-<div class="ent-badge badge-cancelado">CANCELADO</div>
-</div>
-</div>
-
 <span class="label-titulo">Avisos importantes</span>
 <div class="aviso-lista">
 <div class="aviso-card"><div class="aviso-titulo">💡 TIP</div><div class="aviso-text">Traer tachones limpios y botella de agua grande. Llegar 15 min antes.</div></div>
@@ -136,10 +135,29 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="aviso-card"><div class="aviso-titulo">👕 UNIFORME</div><div class="aviso-text">Lunes y miércoles: uniforme rojo. Viernes: playera de entrenamiento negra.</div></div>
 <div class="aviso-card"><div class="aviso-titulo">📢 AVISO</div><div class="aviso-text">Padres favor de no ingresar a cancha durante entrenamiento.</div></div>
 </div>
-
 </div>
-                                                                    </div>
-                                                                    <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
+</div>
+
+<div id="view-equipo" class="view">
+<div class="container">
+<div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Equipo - Ac. Rancho Nuevo</h2></div>
+<span class="label-titulo">Selecciona categoría</span>
+<div class="cat-equipo">
+<div class="btn-cat-eq active" id="cat-5-8" onclick="selectEquipoCat('5-8')"><div class="check-eq">✓</div>NIÑOS 5 A 8</div>
+<div class="btn-cat-eq" id="cat-ninas" onclick="selectEquipoCat('ninas')"><div class="check-eq">✓</div>NIÑAS</div>
+<div class="btn-cat-eq" id="cat-9-12" onclick="selectEquipoCat('9-12')"><div class="check-eq">✓</div>NIÑOS 9 A 12</div>
+</div>
+<div class="cancha" id="cancha">
+<div class="circulo-central"></div>
+<div class="formacion-label">FORMACIÓN 4-4-2 - TITULAR</div>
+<div class="linea-jug" id="linea-delanteros"></div>
+<div class="linea-jug" id="linea-medios"></div>
+<div class="linea-jug" id="linea-defensas"></div>
+<div class="linea-jug" id="linea-portero"></div>
+</div>
+</div>
+  </div>
+  <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
 <div style="padding:20px 16px 10px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:14px;position:sticky;top:0;background:#fff"><div class="btn-back" onclick="cerrarConfirmar()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div><h2 style="font-size:18px;font-weight:900">Confirmar - Ac. Rancho Nuevo</h2><p style="font-size:12px;color:#888">Revisa tus datos</p></div></div>
 <div style="padding:16px;max-width:500px;margin:0 auto">
 <img id="c-foto" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #22c55e;margin:0 auto 10px;display:none">
@@ -152,13 +170,17 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 
 <div id="view-admin" class="view"><div class="container"><div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Admin - Ac. Rancho Nuevo</h2></div><div id="listaAdmin"></div></div></div>
 <div id="toast" style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0a0a;color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:0.3s;z-index:200;pointer-events:none;max-width:90%;text-align:center"></div>
-<div id="view-equipo" class="view"><div class="container">Equipo</div></div>
 <div id="view-noticias" class="view"><div class="container">Noticias</div></div>
 <div class="bottom-nav"><button class="active" onclick="showView('inicio')">🏠<br>INICIO</button><button onclick="showView('admin')">⚙️<br>ADMIN</button></div>
 
 <script>
 let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="";
-function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin')cargarAdmin()}
+const plantillas={
+"5-8":[{n:"Santi",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=1"},{n:"Mateo",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=2"},{n:"Leo",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=3"},{n:"Iker",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=4"},{n:"Bruno",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=5"},{n:"Gael",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=6"},{n:"Thiago",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=7"},{n:"Liam",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=8"},{n:"Dylan",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=9"},{n:"Noah",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=10"},{n:"Luca",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=11"}],
+"ninas":[{n:"Sofia",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=23"},{n:"Valeria",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=24"},{n:"Camila",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=25"},{n:"Ximena",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=26"},{n:"Regina",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=27"},{n:"Fernanda",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=28"},{n:"Isabella",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=29"},{n:"Mia",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=30"},{n:"Renata",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=31"},{n:"Victoria",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=32"},{n:"Luciana",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=33"}],
+"9-12":[{n:"Emiliano",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=12"},{n:"Sebastian",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=13"},{n:"Diego",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=14"},{n:"Johan",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=15"},{n:"Angel",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=16"},{n:"Kevin",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=17"},{n:"Axel",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=18"},{n:"Alan",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=19"},{n:"Erick",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=20"},{n:"Hugo",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=21"},{n:"Cristopher",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=22"}]
+};
+function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin')cargarAdmin();if(v==='equipo')renderCancha('5-8')}
 function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active');categoriaSeleccionada=el.querySelector('b').innerText}
 function selectPlan(id,precio){document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));document.getElementById(id).classList.add('active');planSeleccionado=id;precioSeleccionado=precio}
 function calcularEdad(f){if(!f)return"-";let h=new Date(),n=new Date(f),e=h.getFullYear()-n.getFullYear(),m=h.getMonth()-n.getMonth();if(m<0||(m===0&&h.getDate()<n.getDate()))e--;return e+" años"}
@@ -166,6 +188,9 @@ function formatearFecha(d){return d.toLocaleDateString('es-MX',{day:'numeric',mo
 function checkDate(i){let w=document.getElementById('dateWrapper');if(i.value)w.classList.add('has-value');else w.classList.remove('has-value')}
 function showToast(m){let t=document.getElementById('toast');t.innerText=m;t.style.opacity=1;t.style.transform="translateX(-50%) translateY(0)";setTimeout(()=>{t.style.opacity=0;t.style.transform="translateX(-50%) translateY(20px)"},3000)}
 function previewFoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(ev){fotoBase64=ev.target.result;document.getElementById('imgPreview').src=fotoBase64;document.getElementById('fotoPreview').classList.add('has-foto')};r.readAsDataURL(f)}
+function selectEquipoCat(cat){document.querySelectorAll('.btn-cat-eq').forEach(b=>b.classList.remove('active'));document.getElementById('cat-'+cat).classList.add('active');renderCancha(cat)}
+function crearJugHTML(j){return `<div class="jug"><img class="jug-foto" src="${j.foto}"><div class="jug-dorsal">${j.d}</div><div class="jug-nombre">${j.n}</div><div class="jug-pos">${j.pos}</div></div>`}
+function renderCancha(cat){let eq=plantillas[cat];if(!eq)return;document.getElementById('linea-delanteros').innerHTML=eq.slice(9,11).map(crearJugHTML).join('');document.getElementById('linea-medios').innerHTML=eq.slice(5,9).map(crearJugHTML).join('');document.getElementById('linea-defensas').innerHTML=eq.slice(1,5).map(crearJugHTML).join('');document.getElementById('linea-portero').innerHTML=crearJugHTML(eq[0])}
 function abrirConfirmar(){
 let n=document.getElementById('inp-nombre'),f=document.getElementById('inp-fecha'),c=document.getElementById('inp-curp'),es=document.getElementById('inp-escolaridad'),p=document.getElementById('inp-padre'),t=document.getElementById('inp-tel');
 if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");return}
@@ -193,6 +218,7 @@ let url="https://api.whatsapp.com/send?phone=573242827963&text="+encodeURICompon
 window.location.href=url;
 }
 function cargarAdmin(){let l=document.getElementById('listaAdmin'),ins=JSON.parse(localStorage.getItem('inscritos')||'[]');if(ins.length===0){l.innerHTML="<p style='text-align:center;color:#999;margin-top:30px'>Aún no hay inscritos</p>";return}l.innerHTML=ins.map(i=>`<div style="background:#fff;border:1.5px solid #efefef;border-radius:16px;padding:14px;margin-bottom:12px;display:flex;gap:12px;align-items:center"><img src="${i.foto||'https://via.placeholder.com/100'}" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #22c55e"><div><b>${i.nombre} - ${i.categoria}</b><br><span style="font-size:11px;color:#666">${i.padre} - ${i.tel} | ${i.plan}</span></div></div>`).join('')}
+window.onload=()=>{renderCancha('5-8')}
 </script>
 </body>
 </html>
