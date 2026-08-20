@@ -59,13 +59,13 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .clases-banner-overlay h3 span{color:#22c55e;display:block}
 .ent-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:14px 2px 20px 2px;scroll-snap-type:x mandatory}
 .ent-scroll::-webkit-scrollbar{display:none}
-.ent-card-min{min-width:240px;background:#fff;border:1.5px solid #efefef;border-radius:18px;padding:16px;flex-shrink:0;position:relative;scroll-snap-align:start;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.ent-card-min{min-width:240px;background:#fff;border:1.5px solid #efefef;border-radius:18px;padding:16px 16px 50px 16px;flex-shrink:0;position:relative;scroll-snap-align:start;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
 .ent-card-min .ent-titulo{color:#ef4444;font-size:13px;font-weight:900;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px}
 .ent-card-min .ent-dato{font-size:13px;color:#0a0a0a;margin-bottom:8px;line-height:1.3}
 .ent-card-min .ent-dato span{color:#888;font-size:11px;display:block;text-transform:uppercase;font-weight:700;letter-spacing:0.5px}
-.ent-badge{position:absolute;top:12px;right:12px;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:0.5px}
-.badge-confirmado{background:#000;color:#00ff88;border:1.5px solid #00ff88;box-shadow:0 0 10px rgba(0,255,136,0.7),0 0 20px rgba(0,255,136,0.4)}
-.badge-cancelado{background:#000;color:#ff0040;border:1.5px solid #ff0040;box-shadow:0 0 10px rgba(255,0,64,0.7),0 0 20px rgba(255,0,64,0.4)}
+.ent-badge{position:absolute;bottom:12px;right:12px;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:0.5px}
+.badge-confirmado{background:#000;color:#00ff88;border:1.5px solid #00ff88;box-shadow:0 0 10px rgba(0,255,136,0.8),0 0 20px rgba(0,255,136,0.5)}
+.badge-cancelado{background:#000;color:#ff0040;border:1.5px solid #ff0040;box-shadow:0 0 10px rgba(255,0,64,0.8),0 0 20px rgba(255,0,64,0.5)}
 </style>
 </head>
 <body>
@@ -107,21 +107,21 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 
 <div class="ent-scroll">
 <div class="ent-card-min">
-<div class="ent-badge badge-confirmado">CONFIRMADO</div>
 <div class="ent-titulo">Entrenamiento #1</div>
 <div class="ent-dato"><span>Fecha del entrenamiento</span>22 Agosto 2026</div>
 <div class="ent-dato"><span>Categoría</span>NIÑOS 5 A 8</div>
 <div class="ent-dato"><span>Hora del entrenamiento</span>4:00 PM - 6:00 PM</div>
 <div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 1</div>
+<div class="ent-badge badge-confirmado">CONFIRMADO</div>
 </div>
 
 <div class="ent-card-min">
-<div class="ent-badge badge-cancelado">CANCELADO</div>
 <div class="ent-titulo">Entrenamiento #2</div>
 <div class="ent-dato"><span>Fecha del entrenamiento</span>23 Agosto 2026</div>
 <div class="ent-dato"><span>Categoría</span>NIÑAS</div>
 <div class="ent-dato"><span>Hora del entrenamiento</span>8:00 AM - 10:00 AM</div>
 <div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 2</div>
+<div class="ent-badge badge-cancelado">CANCELADO</div>
 </div>
 </div>
 
