@@ -39,14 +39,18 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .cat-opt b{font-size:12px;display:block;color:#0a0a0a}.cat-opt small{font-size:10px;color:#666}
 .check-cat{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:#22c55e;border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900;border:2px solid #fff}
 .cat-opt.active .check-cat{display:flex}
-.plan-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:12px 2px 20px 2px}
-.plan-carta{min-width:265px;background:#fff;border-radius:22px;padding:20px;flex-shrink:0;position:relative;border:1.8px solid #efefef}
-.plan-carta.active{background:#e8ffe8;border-color:#22c55e}
+.plan-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:12px 2px 20px 2px;scroll-snap-type:x mandatory}
+.plan-carta{min-width:265px;background:#fff;border-radius:22px;padding:20px;flex-shrink:0;position:relative;scroll-snap-align:start;box-shadow:0 8px 30px rgba(0,0,0,0.08);border:1.8px solid #efefef;transition:all 0.25s ease}
+.plan-carta.active{background:#e8ffe8;border-color:#22c55e;box-shadow:0 12px 40px rgba(34,197,94,0.25);transform:translateY(-3px)}
 .plan-carta.active .btn-elegir{background:#22c55e;border-color:#22c55e;color:#fff}
+.plan-carta .top-title{font-size:11px;font-weight:800}
 .plan-carta .dias-badge{background:#0a0a0a;color:#fff;font-size:10px;padding:5px 10px;border-radius:20px;font-weight:800;display:inline-block;margin-top:6px}
-.plan-carta .precio{font-size:38px;font-weight:900;margin-top:12px;color:#ef4444}
-.plan-carta .precio span{font-size:16px}
-.plan-carta .incluye li{list-style:none;font-size:13px;padding:5px 0;color:#222}
+.plan-carta .precio{font-size:38px;font-weight:900;margin-top:12px;color:#ef4444;letter-spacing:-1.5px}
+.plan-carta .precio span{font-size:16px;font-weight:700;color:#ef4444}
+.plan-carta .obs-title{font-size:12px;font-weight:800;margin-top:16px}
+.plan-carta .obs-line{font-size:13px;margin-top:4px;color:#333}
+.plan-carta .incluye-title{font-size:12px;font-weight:800;margin-top:16px}
+.plan-carta .incluye li{list-style:none;font-size:13px;padding:5px 0;display:flex;gap:8px;color:#222}
 .btn-elegir{width:100%;margin-top:18px;background:#fff;color:#0a0a0a;border:2px solid #0a0a0a;padding:13px;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer}
 .check-verde{position:absolute;top:-10px;right:-10px;width:34px;height:34px;background:#22c55e;border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;border:3px solid #fff}
 .plan-carta.active .check-verde{display:flex}
@@ -74,39 +78,47 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="hero"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800"><div class="hero-overlay"><h1>AC. RANCHO NUEVO<br>CAMPEONES</h1><p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p></div></div>
 <div class="container"><div class="grid"><div class="card" onclick="showView('registro')">📝<b style="font-size:10px;margin-top:5px">REGISTRARSE</b></div><div class="card" onclick="showView('clases')">⚽<b style="font-size:10px;margin-top:5px">CLASES</b></div><div class="card" onclick="showView('equipo')">👕<b style="font-size:10px;margin-top:5px">EQUIPO</b></div><div class="card" onclick="showView('noticias')">📰<b style="font-size:10px;margin-top:5px">NOTICIAS</b></div></div></div>
 </div>
+
 <div id="view-registro" class="view">
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Inscripción - Ac. Rancho Nuevo</h2></div>
+
 <div class="foto-perfil-box">
 <div class="foto-preview" id="fotoPreview" onclick="document.getElementById('inp-foto').click()"><span>📷</span><img id="imgPreview" src=""></div>
 <button class="btn-foto" onclick="document.getElementById('inp-foto').click()">Subir foto del niño/a</button>
 <input type="file" id="inp-foto" accept="image/*" style="display:none" onchange="previewFoto(event)">
 </div>
+
 <span class="label-titulo">1. Categoría</span>
 <div class="cat-selector">
 <div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑOS 5 A 8</b><br><small>Iniciación</small></div>
 <div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑAS</b><br><small>Todas las edades</small></div>
 <div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑOS 9 A 12</b><br><small>Avanzado</small></div>
 </div>
+
 <div class="form-glide">
 <span class="label-titulo">2. Información del jugador</span>
 <input id="inp-nombre" type="text" placeholder="Nombre completo del niño">
 <div class="date-wrapper" id="dateWrapper"><span class="date-placeholder">Seleccionar fecha de nacimiento</span><input id="inp-fecha" type="date" oninput="checkDate(this)" onchange="checkDate(this)"></div>
 <input id="inp-curp" type="text" placeholder="CURP">
 <select id="inp-escolaridad"><option value="">Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
+
 <span class="label-titulo">3. Padre / Tutor</span>
 <input id="inp-padre" type="text" placeholder="Nombre completo del padre/tutor">
 <input id="inp-tel" type="tel" placeholder="Teléfono WhatsApp">
+
 <span class="label-titulo">4. Plan de inscripción</span>
-<div class="plan-scroll">
-<div class="plan-carta" id="plan1" onclick="selectPlan('plan1',150)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$150 <span>MXN</span></div><ul class="incluye"><li>✓ (1) Niño</li></ul><button class="btn-elegir">ELEGIR</button></div>
-<div class="plan-carta" id="plan2" onclick="selectPlan('plan2',250)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$250 <span>MXN</span></div><ul class="incluye"><li>✓ (2) Niños</li></ul><button class="btn-elegir">ELEGIR</button></div>
-<div class="plan-carta" id="plan3" onclick="selectPlan('plan3',300)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$300 <span>MXN</span></div><ul class="incluye"><li>✓ (3) Niños</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-scroll" id="plan-container">
+<div class="plan-carta" id="plan1" onclick="selectPlan('plan1',150)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$150 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (1) Niño</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-carta" id="plan2" onclick="selectPlan('plan2',250)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$250 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (2) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-carta" id="plan3" onclick="selectPlan('plan3',300)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$300 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (3) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
 </div>
+
 <button onclick="abrirConfirmar()" style="width:100%;margin-top:10px;background:#0a0a0a;color:#fff;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px">CONTINUAR INSCRIPCIÓN</button>
 </div>
 </div>
 </div>
+
 <div id="modal-confirmar">
 <div class="confirm-header"><div class="btn-back" onclick="cerrarConfirmar()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div><h2 style="font-size:18px;font-weight:900">Confirmar - Ac. Rancho Nuevo</h2><p style="font-size:12px;color:#888">Revisa tus datos</p></div></div>
 <div style="padding:16px;max-width:500px;margin:0 auto">
@@ -117,9 +129,11 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <button onclick="enviarWhatsApp()" style="width:100%;background:#22c55e;color:#fff;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:15px;margin-top:8px">CONTINUAR</button>
 </div>
 </div>
+
 <div id="view-admin" class="view"><div class="container"><div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Admin - Ac. Rancho Nuevo</h2></div><div id="listaAdmin"></div></div></div>
 <div id="toast"></div>
 <div class="bottom-nav"><button class="active" onclick="showView('inicio')">🏠<br>INICIO</button><button onclick="showView('admin')">⚙️<br>ADMIN</button></div>
+
 <script>
 let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="";
 function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin')cargarAdmin()}
@@ -133,7 +147,7 @@ function previewFoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReade
 function abrirConfirmar(){
 let n=document.getElementById('inp-nombre'),f=document.getElementById('inp-fecha'),c=document.getElementById('inp-curp'),es=document.getElementById('inp-escolaridad'),p=document.getElementById('inp-padre'),t=document.getElementById('inp-tel');
 if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");return}
-if(!n.value.trim()){showToast("⚠️ Falta Nombre");n.classList.add('input-error');return}
+if(!n.value.trim()){showToast("⚠️ Falta Nombre");return}
 if(!f.value){showToast("⚠️ Falta Fecha");return}
 if(!c.value.trim()){showToast("⚠️ Falta CURP");return}
 if(!es.value){showToast("⚠️ Falta Escolaridad");return}
