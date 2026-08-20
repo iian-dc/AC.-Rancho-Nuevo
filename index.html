@@ -37,69 +37,59 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .cat-opt.active{background:#e8ffe8;border-color:#22c55e}
 .cat-opt b{font-size:12px;display:block}.cat-opt small{font-size:10px;color:#666}
 .check-cat{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:#22c55e;border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900;border:2px solid #fff}
-.cat-opt.active .check-cat{display:flex}
+.cat-opt.active.check-cat{display:flex}
 .plan-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:12px 2px 20px 2px}
 .plan-carta{min-width:265px;background:#fff;border-radius:22px;padding:20px;flex-shrink:0;position:relative;border:1.8px solid #efefef}
 .plan-carta.active{background:#e8ffe8;border-color:#22c55e}
-.plan-carta.active .btn-elegir{background:#22c55e;border-color:#22c55e;color:#fff}
-.plan-carta .dias-badge{background:#0a0a0a;color:#fff;font-size:10px;padding:5px 10px;border-radius:20px;font-weight:800;display:inline-block;margin-top:6px}
-.plan-carta .precio{font-size:38px;font-weight:900;margin-top:12px;color:#ef4444}
-.plan-carta .precio span{font-size:16px}
-.plan-carta .obs-title{font-size:12px;font-weight:800;margin-top:16px}
-.plan-carta .obs-line{font-size:13px;margin-top:4px;color:#333}
-.plan-carta .incluye-title{font-size:12px;font-weight:800;margin-top:16px}
-.plan-carta .incluye li{list-style:none;font-size:13px;padding:5px 0;color:#222}
+.plan-carta.dias-badge{background:#0a0a0a;color:#fff;font-size:10px;padding:5px 10px;border-radius:20px;font-weight:800;display:inline-block;margin-top:6px}
+.plan-carta.precio{font-size:38px;font-weight:900;margin-top:12px;color:#ef4444}
+.plan-carta.precio span{font-size:16px}
+.plan-carta.obs-title{font-size:12px;font-weight:800;margin-top:16px}
+.plan-carta.obs-line{font-size:13px;margin-top:4px;color:#333}
+.plan-carta.incluye-title{font-size:12px;font-weight:800;margin-top:16px}
+.plan-carta.incluye li{list-style:none;font-size:13px;padding:5px 0;color:#222}
 .btn-elegir{width:100%;margin-top:18px;background:#fff;color:#0a0a0a;border:2px solid #0a0a0a;padding:13px;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer}
 .check-verde{position:absolute;top:-10px;right:-10px;width:34px;height:34px;background:#22c55e;border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;border:3px solid #fff}
-.plan-carta.active .check-verde{display:flex}
+.plan-carta.active.check-verde{display:flex}
 .clases-banner{position:relative;height:200px;border-radius:18px;overflow:hidden;margin-top:10px}
 .clases-banner img{width:100%;height:100%;object-fit:cover}
 .clases-banner-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.7) 20%,rgba(0,0,0,0.1));display:flex;align-items:center;padding:18px}
 .clases-banner-overlay h3{color:#fff;font-size:20px;font-weight:900;line-height:1.1;max-width:200px;text-transform:uppercase}
 .clases-banner-overlay h3 span{color:#22c55e;display:block}
-.ent-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:14px 2px 20px 2px;scroll-snap-type:x mandatory}
-.ent-scroll::-webkit-scrollbar{display:none}
-.ent-card-min{min-width:240px;background:#fff;border:1.5px solid #efefef;border-radius:18px;padding:16px 16px 50px 16px;flex-shrink:0;position:relative;scroll-snap-align:start;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
-.ent-card-min .ent-titulo{color:#ef4444;font-size:13px;font-weight:900;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px}
-.ent-card-min .ent-dato{font-size:13px;color:#0a0a0a;margin-bottom:8px;line-height:1.3}
-.ent-card-min .ent-dato span{color:#888;font-size:11px;display:block;text-transform:uppercase;font-weight:700;letter-spacing:0.5px}
-.ent-badge{position:absolute;bottom:12px;right:12px;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:0.5px;background:#fff}
-.badge-confirmado{color:#00c853;border:1.5px solid #00ff88;box-shadow:0 0 12px rgba(0,255,136,0.7),0 0 22px rgba(0,255,136,0.3)}
-.badge-cancelado{color:#ff1744;border:1.5px solid #ff1744;box-shadow:0 0 12px rgba(255,23,68,0.7),0 0 22px rgba(255,23,68,0.3)}
+.ent-scroll{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:14px 2px 20px 2px}
+.ent-card-min{min-width:240px;background:#fff;border:1.5px solid #efefef;border-radius:18px;padding:16px 16px 50px 16px;flex-shrink:0;position:relative;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.ent-badge{position:absolute;bottom:12px;right:12px;padding:7px 14px;border-radius:20px;font-size:10px;font-weight:900;background:#fff}
+.badge-confirmado{color:#00c853;border:1.5px solid #00ff88;box-shadow:0 0 12px rgba(0,255,136,0.7)}
+.badge-cancelado{color:#ff1744;border:1.5px solid #ff1744;box-shadow:0 0 12px rgba(255,23,68,0.7)}
 .aviso-lista{display:flex;flex-direction:column;gap:12px;padding:10px 0 20px 0}
 .aviso-card{background:#f9f9f9;border:1.5px solid #efefef;border-radius:16px;padding:14px}
 .cat-equipo{display:flex;gap:10px;margin-top:10px}
-.btn-cat-eq{flex:1;background:#fff;border:1.5px solid #efefef;border-radius:14px;padding:12px;text-align:center;font-size:12px;font-weight:800;cursor:pointer;position:relative;transition:0.2s}
-.btn-cat-eq.active{background:#e8ffe8;border-color:#22c55e;box-shadow:0 0 15px rgba(0,255,136,0.5)}
-.btn-cat-eq .check-eq{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:#00ff88;border-radius:50%;display:none;align-items:center;justify-content:center;color:#000;font-size:12px;font-weight:900;border:2px solid #fff;box-shadow:0 0 10px #00ff88}
-.btn-cat-eq.active .check-eq{display:flex}
-.cancha{margin-top:18px;background:radial-gradient(circle at 50% 20%, #4caf50 0%, #2e7d32 60%, #1b5e20 100%);border-radius:22px;padding:12px 8px 16px 8px;position:relative;border:3px solid #fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.4);min-height:720px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.btn-cat-eq{flex:1;background:#fff;border:1.5px solid #efefef;border-radius:14px;padding:12px;text-align:center;font-size:12px;font-weight:800;cursor:pointer;position:relative}
+.btn-cat-eq.active{background:#e8ffe8;border-color:#22c55e}
+.cancha{margin-top:18px;background:radial-gradient(circle at 50% 20%, #4caf50 0%, #2e7d32 60%, #1b5e20 100%);border-radius:22px;padding:12px 8px 16px 8px;position:relative;border:3px solid #fff;min-height:720px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
 .cancha:before{content:'';position:absolute;left:8px;right:8px;top:8px;bottom:8px;border:2px solid rgba(255,255,255,0.7);border-radius:16px;pointer-events:none}
-.cancha:after{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,0.7);transform:translateX(-50%);pointer-events:none}
+.cancha:after{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,0.7);transform:translateX(-50%)}
 .circulo-central{position:absolute;left:50%;top:50%;width:90px;height:90px;border:2px solid rgba(255,255,255,0.7);border-radius:50%;transform:translate(-50%,-50%)}
 .area-grande{position:absolute;width:55%;height:90px;border:2px solid rgba(255,255,255,0.7);left:50%;transform:translateX(-50%)}
 .area-grande.top{top:8px;border-top:none;border-radius:0 0 6px 6px}
 .area-grande.bottom{bottom:8px;border-bottom:none;border-radius:6px 6px 0 0}
 .formacion-label{text-align:center;color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:4px;text-shadow:0 1px 3px #000;position:relative;z-index:2}
-.linea-jug{display:flex;justify-content:space-around;align-items:flex-start;position:relative;z-index:2;padding:2px 0}
+.linea-jug{display:flex;justify-content:space-around;position:relative;z-index:2;padding:2px 0}
 .jug{width:72px;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer}
-.jug-foto{width:52px;height:52px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+.jug-foto{width:52px;height:52px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;background:#fff}
 .jug-dorsal{background:#ef4444;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:10px;margin-top:-8px;position:relative;z-index:3;border:1.5px solid #fff}
-.jug-nombre{color:#fff;font-size:9px;font-weight:800;margin-top:4px;line-height:1.1;text-shadow:0 1px 2px #000;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jug-nombre{color:#fff;font-size:9px;font-weight:800;margin-top:4px;text-shadow:0 1px 2px #000;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .jug-pos{color:#c8e6c9;font-size:8px;font-weight:700}
 .modal-jug{position:fixed;inset:0;background:#fff;z-index:120;display:none;overflow-y:auto}
-.modal-jug .top-bar-jug{display:flex;align-items:center;gap:14px;padding:16px;border-bottom:1px solid #f0f0f0;position:sticky;top:0;background:#fff;z-index:2}
 .foto-circular-box{display:flex;flex-direction:column;align-items:center;padding:30px 20px 10px}
-.foto-circular{width:140px;height:140px;border-radius:50%;border:4px solid #22c55e;object-fit:cover;box-shadow:0 0 20px rgba(34,197,94,0.4)}
+.foto-circular{width:140px;height:140px;border-radius:50%;border:4px solid #22c55e;object-fit:cover}
 .nombre-jugador{font-size:22px;font-weight:900;margin-top:14px;text-transform:uppercase}
 .dorsal-jugador{font-size:14px;font-weight:800;color:#ef4444;margin-top:4px}
 .jug-detalle-box{padding:18px;max-width:500px;margin:0 auto}
 .jug-detalle-card{background:#f9f9f9;border:1.5px solid #efefef;border-radius:18px;padding:18px;margin-bottom:14px}
 .jug-detalle-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;font-size:13px}
-.jug-detalle-row:last-child{border-bottom:none}
 .periodico-header{text-align:center;padding:18px 0 10px;border-bottom:3px double #0a0a0a;margin-bottom:14px}
 .periodico-header h1{font-family:'Times New Roman',serif;font-size:32px;font-weight:900;letter-spacing:2px}
-.periodico-header p{font-size:10px;letter-spacing:2px;margin-top:4px}
 .noticia-principal{position:relative;border-radius:18px;overflow:hidden;height:260px;cursor:pointer;margin-bottom:14px}
 .noticia-principal img{width:100%;height:100%;object-fit:cover}
 .noticia-principal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 20%,rgba(0,0,0,0.1));display:flex;flex-direction:column;justify-content:end;padding:16px}
@@ -109,15 +99,25 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .noticia-lista{display:flex;flex-direction:column;gap:0}
 .noticia-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #ddd;cursor:pointer}
 .noticia-item img{width:90px;height:70px;border-radius:10px;object-fit:cover;flex-shrink:0}
-.noticia-item-info{flex:1}
 .noticia-item-titulo{font-family:'Times New Roman',serif;font-size:14px;font-weight:900;line-height:1.2;text-transform:uppercase}
-.noticia-item-desc{font-size:11px;color:#666;margin-top:4px;line-height:1.3}
-.noticia-item-fecha{font-size:10px;color:#999;margin-top:4px}
+.noticia-item-desc{font-size:11px;color:#666;margin-top:4px}
 .marcador{font-size:12px;font-weight:900;background:#0a0a0a;color:#fff;padding:3px 8px;border-radius:6px;display:inline-block;margin-bottom:4px}
 .modal-noticia{position:fixed;inset:0;background:#fdfbf3;z-index:130;display:none;overflow-y:auto}
 .login-box{max-width:350px;margin:60px auto 0;background:#fff;border:1.5px solid #efefef;border-radius:20px;padding:24px;text-align:center}
-.login-box input{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1.5px solid #e5e5e5;background:#f9f9f9;font-size:14px;outline:none}
+.login-box input{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1.5px solid #e5e5e5;background:#f9f9f9}
 .btn-login{width:100%;background:#0a0a0a;color:#fff;border:none;padding:14px;border-radius:12px;font-weight:900;margin-top:12px;cursor:pointer}
+.admin-tabs{display:flex;gap:8px;overflow-x:auto;margin:14px 0}
+.admin-tab{padding:10px 16px;border-radius:20px;border:1.5px solid #efefef;background:#fff;font-size:12px;font-weight:800;white-space:nowrap;cursor:pointer}
+.admin-tab.active{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
+.alumno-card{display:flex;gap:12px;background:#fff;border:1.5px solid #efefef;border-radius:16px;padding:12px;margin-bottom:10px;align-items:center}
+.alumno-card img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #22c55e}
+.alumno-info{flex:1}
+.alumno-info b{font-size:13px}
+.alumno-info small{display:block;color:#666;font-size:11px;margin-top:2px}
+.btn-editar{background:#fff;border:1.5px solid #0a0a0a;padding:6px 12px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer}
+.modal-edit{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:140;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-edit-box{background:#fff;border-radius:20px;padding:20px;max-width:400px;width:100%;max-height:90vh;overflow-y:auto}
+.modal-edit-box input,.modal-edit-box select{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1.5px solid #e5e5e5;background:#f9f9f9}
 </style>
 </head>
 <body>
@@ -129,21 +129,24 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="card" onclick="showView('clases')">⚽<b style="font-size:10px;margin-top:5px">CLASES</b></div>
 <div class="card" onclick="showView('equipo')">👕<b style="font-size:10px;margin-top:5px">EQUIPO</b></div>
 </div>
-<div style="background:#fdfbf3;border-radius:18px;padding:12px;margin-top:20px">
+</div>
+</div>
+<div id="view-inicio-cont" class="view active">
+<div class="container" style="background:#fdfbf3;border-radius:18px;padding:12px;margin-top:0;max-width:500px;margin:0 auto">
 <div class="periodico-header"><h1>LA VOZ DE RANCHO NUEVO</h1><p>EDICIÓN 20 AGOSTO 2026</p></div>
 <div class="noticia-principal" onclick="abrirNoticia(0)"><img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?q=80&w=800"><div class="noticia-principal-overlay"><span class="noticia-tag">¡VICTORIA!</span><div class="marcador">RANCHO NUEVO 3 - 1 LOBOS</div><div class="noticia-titulo-prin">¡CAMPEONES COPA REGIONAL 2026!</div><div class="noticia-fecha">20 Agosto 2026</div></div></div>
 <div class="noticia-lista">
-<div class="noticia-item" onclick="abrirNoticia(1)"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=300"><div class="noticia-item-info"><span class="noticia-tag" style="font-size:8px">TORNEO</span><div class="noticia-item-titulo">GOLEADA 4-0 A TIGRES JR</div><div class="noticia-item-desc">Categoría 5-8 arrasa con doblete de Santi.</div><div class="noticia-item-fecha">18 Ago 2026</div></div></div>
-<div class="noticia-item" onclick="abrirNoticia(2)"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=300"><div class="noticia-item-info"><span class="noticia-tag" style="font-size:8px;background:#0a0a0a">CONVOCATORIA</span><div class="noticia-item-titulo">NIÑAS A LA SELECCIÓN ESTATAL</div><div class="noticia-item-desc">Sofia y Valeria convocadas.</div><div class="noticia-item-fecha">15 Ago 2026</div></div></div>
-<div class="noticia-item" onclick="abrirNoticia(3)"><img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=300"><div class="noticia-item-info"><span class="noticia-tag" style="font-size:8px;background:#22c55e">ENTRENAMIENTO</span><div class="noticia-item-titulo">NUEVO HORARIO SABATINO</div><div class="noticia-item-desc">Cambiamos a 8am por el calor.</div><div class="noticia-item-fecha">12 Ago 2026</div></div></div>
-<div class="noticia-item" onclick="abrirNoticia(4)"><img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=300"><div class="noticia-item-info"><span class="noticia-tag" style="font-size:8px;background:#f59e0b">MVP</span><div class="noticia-item-titulo">THIAGO #6 ES EL MVP</div><div class="noticia-item-desc">5 goles y 7 asistencias.</div><div class="noticia-item-fecha">10 Ago 2026</div></div></div>
+<div class="noticia-item" onclick="abrirNoticia(1)"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=300"><div><div class="noticia-item-titulo">GOLEADA 4-0 A TIGRES JR</div><div class="noticia-item-desc">Categoría 5-8 arrasa con doblete de Santi.</div><div style="font-size:10px;color:#999;margin-top:4px">18 Ago 2026</div></div></div>
+<div class="noticia-item" onclick="abrirNoticia(2)"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=300"><div><div class="noticia-item-titulo">NIÑAS A LA SELECCIÓN ESTATAL</div><div class="noticia-item-desc">Sofia y Valeria convocadas.</div><div style="font-size:10px;color:#999;margin-top:4px">15 Ago 2026</div></div></div>
+<div class="noticia-item" onclick="abrirNoticia(3)"><img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=300"><div><div class="noticia-item-titulo">NUEVO HORARIO SABATINO</div><div class="noticia-item-desc">Cambiamos a 8am por el calor.</div><div style="font-size:10px;color:#999;margin-top:4px">12 Ago 2026</div></div></div>
+<div class="noticia-item" onclick="abrirNoticia(4)"><img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=300"><div><div class="noticia-item-titulo">THIAGO #6 ES EL MVP</div><div class="noticia-item-desc">5 goles y 7 asistencias.</div><div style="font-size:10px;color:#999;margin-top:4px">10 Ago 2026</div></div></div>
 </div>
 </div>
 </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                             </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                             <div id="view-registro" class="view">
+
+<div id="view-registro" class="view">
 <div class="container">
-<div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Inscripción - Ac. Rancho Nuevo</h2></div>
+<div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Inscripción</h2></div>
 <div class="foto-perfil-box"><div class="foto-preview" id="fotoPreview" onclick="document.getElementById('inp-foto').click()"><span>📷</span><img id="imgPreview" src=""></div><button class="btn-foto" onclick="document.getElementById('inp-foto').click()">Subir foto del niño/a</button><input type="file" id="inp-foto" accept="image/*" style="display:none" onchange="previewFoto(event)"></div>
 <span class="label-titulo">1. Categoría</span>
 <div class="cat-selector"><div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑOS 5 A 8</b><br><small>Iniciación</small></div><div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑAS</b><br><small>Todas las edades</small></div><div class="cat-opt" onclick="selectCat(this)"><div class="check-cat">✓</div><b>NIÑOS 9 A 12</b><br><small>Avanzado</small></div></div>
@@ -166,27 +169,26 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 </div>
 </div>
 </div>
-
 <div id="view-clases" class="view">
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Entrenamientos</h2></div>
 <div class="clases-banner"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800"><div class="clases-banner-overlay"><h3>FORMAMOS JUGADORES <span>CONSTRUIMOS PERSONAS</span></h3></div></div>
 <div class="ent-scroll">
-<div class="ent-card-min"><div class="ent-titulo">Entrenamiento #1</div><div class="ent-dato"><span>Fecha del entrenamiento</span>22 Agosto 2026</div><div class="ent-dato"><span>Categoría</span>NIÑOS 5 A 8</div><div class="ent-dato"><span>Hora del entrenamiento</span>4:00 PM - 6:00 PM</div><div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 1</div><div class="ent-badge badge-confirmado">CONFIRMADO</div></div>
-<div class="ent-card-min"><div class="ent-titulo">Entrenamiento #2</div><div class="ent-dato"><span>Fecha del entrenamiento</span>23 Agosto 2026</div><div class="ent-dato"><span>Categoría</span>NIÑAS</div><div class="ent-dato"><span>Hora del entrenamiento</span>8:00 AM - 10:00 AM</div><div class="ent-dato"><span>Cancha</span>Rancho Nuevo - Cancha 2</div><div class="ent-badge badge-cancelado">CANCELADO</div></div>
+<div class="ent-card-min"><div style="color:#ef4444;font-size:13px;font-weight:900;text-transform:uppercase;margin-bottom:14px">Entrenamiento #1</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block;text-transform:uppercase;font-weight:700">Fecha</span>22 Agosto 2026</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block">Categoría</span>NIÑOS 5 A 8</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block">Hora</span>4:00 PM - 6:00 PM</div><div style="font-size:13px"><span style="color:#888;font-size:11px;display:block">Cancha</span>Rancho Nuevo - Cancha 1</div><div class="ent-badge badge-confirmado">CONFIRMADO</div></div>
+<div class="ent-card-min"><div style="color:#ef4444;font-size:13px;font-weight:900;text-transform:uppercase;margin-bottom:14px">Entrenamiento #2</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block">Fecha</span>23 Agosto 2026</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block">Categoría</span>NIÑAS</div><div style="font-size:13px;margin-bottom:8px"><span style="color:#888;font-size:11px;display:block">Hora</span>8:00 AM - 10:00 AM</div><div style="font-size:13px"><span style="color:#888;font-size:11px;display:block">Cancha</span>Rancho Nuevo - Cancha 2</div><div class="ent-badge badge-cancelado">CANCELADO</div></div>
 </div>
 <span class="label-titulo">Avisos importantes</span>
 <div class="aviso-lista">
-<div class="aviso-card"><div class="aviso-titulo">💡 TIP</div><div class="aviso-text">Traer tachones limpios y botella de agua grande.</div></div>
-<div class="aviso-card"><div class="aviso-titulo">⏰ CAMBIO DE HORARIO</div><div class="aviso-text">Sábado 23 uniforme blanco oficial.</div></div>
-<div class="aviso-card"><div class="aviso-titulo">👕 UNIFORME</div><div class="aviso-text">Lunes y miércoles: rojo. Viernes: negra.</div></div>
-<div class="aviso-card"><div class="aviso-titulo">📢 AVISO</div><div class="aviso-text">Padres no ingresar a cancha durante entreno.</div></div>
+<div class="aviso-card"><div style="font-size:11px;font-weight:900">💡 TIP</div><div style="font-size:12px;color:#333">Traer tachones limpios y botella de agua grande.</div></div>
+<div class="aviso-card"><div style="font-size:11px;font-weight:900">⏰ CAMBIO DE HORARIO</div><div style="font-size:12px;color:#333">Sábado 23 uniforme blanco oficial.</div></div>
+<div class="aviso-card"><div style="font-size:11px;font-weight:900">👕 UNIFORME</div><div style="font-size:12px;color:#333">Lunes y miércoles: rojo. Viernes: negra.</div></div>
+<div class="aviso-card"><div style="font-size:11px;font-weight:900">📢 AVISO</div><div style="font-size:12px;color:#333">Padres no ingresar a cancha durante entreno.</div></div>
 </div>
 </div>
 </div>
 <div id="view-equipo" class="view">
 <div class="container">
-<div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Equipo - Ac. Rancho Nuevo</h2></div>
+<div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Equipo</h2></div>
 <span class="label-titulo">Selecciona categoría</span>
 <div class="cat-equipo">
 <div class="btn-cat-eq active" id="cat-5-8" onclick="selectEquipoCat('5-8')"><div class="check-eq">✓</div>NIÑOS 5 A 8</div>
@@ -209,12 +211,30 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Admin</h2></div>
 <div id="admin-login"><div class="login-box"><h3 style="font-size:18px;font-weight:900">🔒 ACCESO PRIVADO</h3><p style="font-size:12px;color:#888;margin-top:6px">Solo personal autorizado</p><input id="admin-user" type="text" placeholder="Usuario"><input id="admin-pass" type="password" placeholder="Contraseña"><button class="btn-login" onclick="loginAdmin()">INGRESAR</button></div></div>
-<div id="admin-content" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px"><h4 style="font-size:14px;font-weight:800">Inscritos</h4><button onclick="logoutAdmin()" style="background:#ef4444;color:#fff;border:none;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:800">SALIR</button></div><div id="listaAdmin" style="margin-top:12px"></div></div>
+<div id="admin-content" style="display:none">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="font-size:14px;font-weight:900">Panel Rancho Nuevo</h4><button onclick="logoutAdmin()" style="background:#ef4444;color:#fff;border:none;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:800">SALIR</button></div>
+<div class="admin-tabs">
+<div class="admin-tab active" id="tab-alumnos" onclick="switchAdminTab('alumnos')">📋 ALUMNOS</div>
+<div class="admin-tab" id="tab-noticias" onclick="switchAdminTab('noticias')">📰 NOTICIAS</div>
+<div class="admin-tab" id="tab-clases" onclick="switchAdminTab('clases')">⚽ CLASES</div>
+</div>
+<div id="admin-alumnos">
+<div class="cat-equipo" style="margin-bottom:12px">
+<div class="btn-cat-eq active" id="f-todos" onclick="filtrarAlumnos('todos')">TODOS</div>
+<div class="btn-cat-eq" id="f-5-8" onclick="filtrarAlumnos('NIÑOS 5 A 8')">5 A 8</div>
+<div class="btn-cat-eq" id="f-ninas" onclick="filtrarAlumnos('NIÑAS')">NIÑAS</div>
+<div class="btn-cat-eq" id="f-9-12" onclick="filtrarAlumnos('NIÑOS 9 A 12')">9 A 12</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0"><span style="font-size:12px;font-weight:800" id="contadorAlumnos">0 alumnos</span><button onclick="borrarTodos()" style="background:#fff;border:1px solid #ef4444;color:#ef4444;padding:5px 10px;border-radius:8px;font-size:10px;font-weight:800">BORRAR TODO</button></div>
+<div id="listaAdmin"></div>
+</div>
+<div id="admin-noticias" style="display:none"><div style="background:#f9f9f9;border:1.5px solid #efefef;border-radius:16px;padding:16px"><h4 style="font-size:12px;font-weight:800;color:#ef4444">GESTIONAR NOTICIAS</h4><input id="inp-noticia-titulo" placeholder="Nuevo título noticia" style="width:100%;padding:10px;margin-top:10px;border-radius:10px;border:1.5px solid #e5e5e5"><button onclick="showToast('Noticia guardada')" style="width:100%;margin-top:8px;background:#0a0a0a;color:#fff;border:none;padding:12px;border-radius:10px;font-weight:800;font-size:12px">GUARDAR</button></div></div>
+<div id="admin-clases" style="display:none"><div style="background:#f9f9f9;border:1.5px solid #efefef;border-radius:16px;padding:16px"><h4 style="font-size:12px;font-weight:800;color:#ef4444">GESTIONAR CLASES</h4><input id="inp-aviso" placeholder="Nuevo aviso" style="width:100%;padding:10px;margin-top:10px;border-radius:10px;border:1.5px solid #e5e5e5"><button onclick="showToast('Aviso guardado')" style="width:100%;margin-top:8px;background:#0a0a0a;color:#fff;border:none;padding:12px;border-radius:10px;font-weight:800;font-size:12px">GUARDAR</button></div></div>
 </div>
 </div>
-
+</div>
 <div id="modal-jugador" class="modal-jug">
-<div class="top-bar-jug"><div class="btn-back" onclick="cerrarJugador()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:18px;font-weight:900" id="mj-titulo-top">Ficha del jugador</h2></div>
+<div style="display:flex;align-items:center;gap:14px;padding:16px;border-bottom:1px solid #f0f0f0;position:sticky;top:0;background:#fff"><div class="btn-back" onclick="cerrarJugador()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:18px;font-weight:900" id="mj-titulo-top">Ficha del jugador</h2></div>
 <div class="foto-circular-box"><img id="mj-foto" class="foto-circular" src=""><div id="mj-nombre" class="nombre-jugador">SANTI</div><div id="mj-dorsal" class="dorsal-jugador">#1 - PORTERO</div></div>
 <div class="jug-detalle-box">
 <div class="jug-detalle-card"><div class="jug-detalle-row"><span style="color:#888">Nombre</span><b id="mj-nombre2">Santi</b></div><div class="jug-detalle-row"><span style="color:#888">Categoría</span><b id="mj-cat">NIÑOS 5 A 8</b></div><div class="jug-detalle-row"><span style="color:#888">Edad</span><b id="mj-edad">7 años</b></div><div class="jug-detalle-row"><span style="color:#888">Posición</span><b id="mj-pos">POR</b></div><div class="jug-detalle-row"><span style="color:#888">Dorsal</span><b id="mj-num">#1</b></div><div class="jug-detalle-row"><span style="color:#888">Pierna hábil</span><b id="mj-pierna">Derecho</b></div></div>
@@ -237,6 +257,7 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 </div>
 </div>
 </div>
+
 <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
 <div style="padding:20px 16px 10px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:14px;position:sticky;top:0;background:#fff"><div class="btn-back" onclick="cerrarConfirmar()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div><h2 style="font-size:18px;font-weight:900">Confirmar</h2><p style="font-size:12px;color:#888">Revisa tus datos</p></div></div>
 <div style="padding:16px;max-width:500px;margin:0 auto">
@@ -247,34 +268,43 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <button onclick="enviarWhatsApp()" style="width:100%;background:#22c55e;color:#fff;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:15px;margin-top:8px">CONTINUAR</button>
 </div>
 </div>
+<div id="modal-edit-alumno" class="modal-edit"><div class="modal-edit-box"><h3 style="font-size:16px;font-weight:900">✏️ EDITAR ALUMNO</h3><input id="edit-nombre" placeholder="Nombre"><input id="edit-fecha" type="date"><select id="edit-categoria"><option>NIÑOS 5 A 8</option><option>NIÑAS</option><option>NIÑOS 9 A 12</option></select><input id="edit-padre" placeholder="Padre/Tutor"><input id="edit-tel" placeholder="Teléfono"><div style="display:flex;gap:10px;margin-top:12px"><button onclick="cerrarEdit()" style="flex:1;background:#fff;border:1.5px solid #0a0a0a;padding:12px;border-radius:10px;font-weight:800">CANCELAR</button><button onclick="guardarEdit()" style="flex:1;background:#0a0a0a;color:#fff;border:none;padding:12px;border-radius:10px;font-weight:800">GUARDAR</button></div><button onclick="eliminarAlumno()" style="width:100%;margin-top:10px;background:#fff;border:1.5px solid #ef4444;color:#ef4444;padding:10px;border-radius:10px;font-weight:800;font-size:11px">ELIMINAR ALUMNO</button></div></div>
 
 <div id="toast" style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0a0a;color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:0.3s;z-index:200;pointer-events:none;max-width:90%;text-align:center"></div>
 <div class="bottom-nav"><button class="active" onclick="showView('inicio')">🏠<br>INICIO</button><button onclick="showView('admin')">⚙️<br>ADMIN</button></div>
 
 <script>
-let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="",categoriaEquipoActual="5-8",adminLogueado=false;
+let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="",categoriaEquipoActual="5-8",adminLogueado=false,filtroActual="todos",editIndex=null;
 const plantillas={
-"5-8":[{n:"Santi",d:"1",pos:"POR",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=1",desc:"Portero ágil."},{n:"Mateo",d:"2",pos:"LD",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=2",desc:"Lateral rápido."},{n:"Leo",d:"4",pos:"DFC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=3",desc:"Defensa fuerte."},{n:"Iker",d:"5",pos:"DFC",edad:"8 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=4",desc:"Capitán."},{n:"Bruno",d:"3",pos:"LI",edad:"7 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=5",desc:"Lateral con garra."},{n:"Gael",d:"7",pos:"MD",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=6",desc:"Extremo habilidoso."},{n:"Thiago",d:"6",pos:"MC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=7",desc:"Cerebro."},{n:"Liam",d:"8",pos:"MC",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=8",desc:"Mediocentro."},{n:"Dylan",d:"11",pos:"MI",edad:"8 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=9",desc:"Velocista."},{n:"Noah",d:"9",pos:"DC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=10",desc:"Goleador."},{n:"Luca",d:"10",pos:"DC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=11",desc:"Segundo delantero."}],
-"ninas":[{n:"Sofia",d:"1",pos:"POR",edad:"10 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=23",desc:"Portera segura."},{n:"Valeria",d:"2",pos:"LD",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=24",desc:"Lateral incansable."},{n:"Camila",d:"4",pos:"DFC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=25",desc:"Defensa contundente."},{n:"Ximena",d:"5",pos:"DFC",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=26",desc:"Jefa de zaga."},{n:"Regina",d:"3",pos:"LI",edad:"10 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=27",desc:"Lateral con proyección."},{n:"Fernanda",d:"7",pos:"MD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=28",desc:"Extrema con gol."},{n:"Isabella",d:"6",pos:"MC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=29",desc:"Creativa."},{n:"Mia",d:"8",pos:"MC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=30",desc:"Box to box."},{n:"Renata",d:"11",pos:"MI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=31",desc:"Desequilibrante."},{n:"Victoria",d:"9",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=32",desc:"Killer."},{n:"Luciana",d:"10",pos:"DC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=33",desc:"Segunda punta."}],
-"9-12":[{n:"Emiliano",d:"1",pos:"POR",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=12",desc:"Portero con envergadura."},{n:"Sebastian",d:"2",pos:"LD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=13",desc:"Carrilero."},{n:"Diego",d:"4",pos:"DFC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=14",desc:"Central rápido."},{n:"Johan",d:"5",pos:"DFC",edad:"12 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=15",desc:"Zurdo elegante."},{n:"Angel",d:"3",pos:"LI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=16",desc:"Lateral con disparo."},{n:"Kevin",d:"7",pos:"MD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=17",desc:"Extremo goleador."},{n:"Axel",d:"6",pos:"MC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=18",desc:"Pivote."},{n:"Alan",d:"8",pos:"MC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=19",desc:"Interior."},{n:"Erick",d:"11",pos:"MI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=20",desc:"Extremo."},{n:"Hugo",d:"9",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=21",desc:"9 clásico."},{n:"Cristopher",d:"10",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=22",desc:"Mediapunta."}]
+"5-8":[{n:"Santi",d:"1",pos:"POR",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=1",desc:"Portero ágil."},{n:"Mateo",d:"2",pos:"LD",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=2",desc:"Lateral rápido."},{n:"Leo",d:"4",pos:"DFC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=3",desc:"Defensa fuerte."},{n:"Iker",d:"5",pos:"DFC",edad:"8 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=4",desc:"Capitán."},{n:"Bruno",d:"3",pos:"LI",edad:"7 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=5",desc:"Lateral."},{n:"Gael",d:"7",pos:"MD",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=6",desc:"Extremo."},{n:"Thiago",d:"6",pos:"MC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=7",desc:"Cerebro."},{n:"Liam",d:"8",pos:"MC",edad:"7 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=8",desc:"Mediocentro."},{n:"Dylan",d:"11",pos:"MI",edad:"8 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=9",desc:"Velocista."},{n:"Noah",d:"9",pos:"DC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=10",desc:"Goleador."},{n:"Luca",d:"10",pos:"DC",edad:"8 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=11",desc:"Segundo delantero."}],
+"ninas":[{n:"Sofia",d:"1",pos:"POR",edad:"10 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=23",desc:"Portera segura."},{n:"Valeria",d:"2",pos:"LD",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=24",desc:"Lateral."},{n:"Camila",d:"4",pos:"DFC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=25",desc:"Defensa."},{n:"Ximena",d:"5",pos:"DFC",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=26",desc:"Jefa."},{n:"Regina",d:"3",pos:"LI",edad:"10 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=27",desc:"Lateral."},{n:"Fernanda",d:"7",pos:"MD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=28",desc:"Extrema."},{n:"Isabella",d:"6",pos:"MC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=29",desc:"Creativa."},{n:"Mia",d:"8",pos:"MC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=30",desc:"Box."},{n:"Renata",d:"11",pos:"MI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=31",desc:"Deseq."},{n:"Victoria",d:"9",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=32",desc:"Killer."},{n:"Luciana",d:"10",pos:"DC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=33",desc:"Segunda punta."}],
+"9-12":[{n:"Emiliano",d:"1",pos:"POR",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=12",desc:"Portero."},{n:"Sebastian",d:"2",pos:"LD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=13",desc:"Carrilero."},{n:"Diego",d:"4",pos:"DFC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=14",desc:"Central."},{n:"Johan",d:"5",pos:"DFC",edad:"12 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=15",desc:"Zurdo."},{n:"Angel",d:"3",pos:"LI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=16",desc:"Lateral."},{n:"Kevin",d:"7",pos:"MD",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=17",desc:"Extremo."},{n:"Axel",d:"6",pos:"MC",edad:"11 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=18",desc:"Pivote."},{n:"Alan",d:"8",pos:"MC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=19",desc:"Interior."},{n:"Erick",d:"11",pos:"MI",edad:"11 años",pierna:"Izquierdo",foto:"https://i.pravatar.cc/100?img=20",desc:"Extremo."},{n:"Hugo",d:"9",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=21",desc:"9 clásico."},{n:"Cristopher",d:"10",pos:"DC",edad:"12 años",pierna:"Derecho",foto:"https://i.pravatar.cc/100?img=22",desc:"Mediapunta."}]
 };
 const noticias=[
 {titulo:"¡SOMOS CAMPEONES COPA REGIONAL 2026!",fecha:"20 Agosto 2026",tag:"¡VICTORIA!",marcador:"RANCHO NUEVO 3 - 1 LOBOS",foto:"https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?q=80&w=800",texto:"Campeones 3-1 vs Lobos FC. Goles de Noah y Luca."},
 {titulo:"GOLEADA 4-0 A TIGRES JR",fecha:"18 Ago 2026",tag:"TORNEO",marcador:"RANCHO NUEVO 4 - 0 TIGRES",foto:"https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800",texto:"Goleada 4-0 a Tigres Jr."},
 {titulo:"NIÑAS A SELECCIÓN",fecha:"15 Ago 2026",tag:"CONVOCATORIA",marcador:"",foto:"https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800",texto:"Sofia y Valeria a Selección Estatal."},
-{titulo:"NUEVO HORARIO SABATINO",fecha:"12 Ago 2026",tag:"ENTRENAMIENTO",marcador:"",foto:"https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=800",texto:"Sábados 8am por calor."},
+{titulo:"NUEVO HORARIO SABATINO",fecha:"12 Ago 2026",tag:"ENTRENAMIENTO",marcador:"",foto:"https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=800",texto:"Sábados 8am por el calor."},
 {titulo:"THIAGO MVP",fecha:"10 Ago 2026",tag:"MVP",marcador:"",foto:"https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=800",texto:"Thiago MVP 5 goles 7 asistencias."}
 ];
-function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin'){if(adminLogueado){document.getElementById('admin-login').style.display='none';document.getElementById('admin-content').style.display='block';cargarAdmin()}else{document.getElementById('admin-login').style.display='block';document.getElementById('admin-content').style.display='none'}}if(v==='equipo')renderCancha(categoriaEquipoActual)}
+function showView(v){
+if(v==='inicio'){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-inicio').classList.add('active');document.getElementById('view-inicio-cont').classList.add('active');return}
+document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+document.getElementById('view-'+v).classList.add('active');
+if(v==='admin'){if(adminLogueado){document.getElementById('admin-login').style.display='none';document.getElementById('admin-content').style.display='block';cargarAdmin()}else{document.getElementById('admin-login').style.display='block';document.getElementById('admin-content').style.display='none'}}
+if(v==='equipo')renderCancha(categoriaEquipoActual)
+}
 function loginAdmin(){let u=document.getElementById('admin-user').value,p=document.getElementById('admin-pass').value;if(u==="admin2026" && p==="0831"){adminLogueado=true;document.getElementById('admin-login').style.display='none';document.getElementById('admin-content').style.display='block';cargarAdmin();showToast("✅ Bienvenido Admin")}else{showToast("❌ Usuario o contraseña incorrectos")}}
-function logoutAdmin(){adminLogueado=false;document.getElementById('admin-user').value="";document.getElementById('admin-pass').value="";document.getElementById('admin-login').style.display='block';document.getElementById('admin-content').style.display='none';showToast("Sesión cerrada")}
+function logoutAdmin(){adminLogueado=false;document.getElementById('admin-user').value="";document.getElementById('admin-pass').value="";document.getElementById('admin-login').style.display='block';document.getElementById('admin-content').style.display='none'}
+function switchAdminTab(t){document.querySelectorAll('.admin-tab').forEach(x=>x.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('admin-alumnos').style.display=t==='alumnos'?'block':'none';document.getElementById('admin-noticias').style.display=t==='noticias'?'block':'none';document.getElementById('admin-clases').style.display=t==='clases'?'block':'none'}
+function filtrarAlumnos(cat){filtroActual=cat;document.getElementById('f-todos').classList.remove('active');document.getElementById('f-5-8').classList.remove('active');document.getElementById('f-ninas').classList.remove('active');document.getElementById('f-9-12').classList.remove('active');let id=cat==='todos'?'f-todos':cat==='NIÑOS 5 A 8'?'f-5-8':cat==='NIÑAS'?'f-ninas':'f-9-12';document.getElementById(id).classList.add('active');cargarAdmin()}
 function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active');categoriaSeleccionada=el.querySelector('b').innerText}
 function selectPlan(id,precio){document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));document.getElementById(id).classList.add('active');planSeleccionado=id;precioSeleccionado=precio}
 function calcularEdad(f){if(!f)return"-";let h=new Date(),n=new Date(f),e=h.getFullYear()-n.getFullYear(),m=h.getMonth()-n.getMonth();if(m<0||(m===0&&h.getDate()<n.getDate()))e--;return e+" años"}
 function formatearFecha(d){return d.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}
 function showToast(m){let t=document.getElementById('toast');t.innerText=m;t.style.opacity=1;t.style.transform="translateX(-50%) translateY(0)";setTimeout(()=>{t.style.opacity=0;t.style.transform="translateX(-50%) translateY(20px)"},3000)}
 function previewFoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(ev){fotoBase64=ev.target.result;document.getElementById('imgPreview').src=fotoBase64;document.getElementById('fotoPreview').classList.add('has-foto')};r.readAsDataURL(f)}
-function selectEquipoCat(cat){document.querySelectorAll('.btn-cat-eq').forEach(b=>b.classList.remove('active'));document.getElementById('cat-'+cat).classList.add('active');categoriaEquipoActual=cat;renderCancha(cat)}
+function selectEquipoCat(cat){document.getElementById('cat-5-8').classList.remove('active');document.getElementById('cat-ninas').classList.remove('active');document.getElementById('cat-9-12').classList.remove('active');document.getElementById('cat-'+cat).classList.add('active');categoriaEquipoActual=cat;renderCancha(cat)}
 function crearJugHTML(j,idx){return `<div class="jug" onclick="abrirJugador('${categoriaEquipoActual}',${idx})"><img class="jug-foto" src="${j.foto}"><div class="jug-dorsal">${j.d}</div><div class="jug-nombre">${j.n}</div><div class="jug-pos">${j.pos}</div></div>`}
 function renderCancha(cat){let eq=plantillas[cat];if(!eq)return;document.getElementById('linea-delanteros').innerHTML=eq.slice(9,11).map((j,i)=>crearJugHTML(j,9+i)).join('');document.getElementById('linea-medios').innerHTML=eq.slice(5,9).map((j,i)=>crearJugHTML(j,5+i)).join('');document.getElementById('linea-defensas').innerHTML=eq.slice(1,5).map((j,i)=>crearJugHTML(j,1+i)).join('');document.getElementById('linea-portero').innerHTML=crearJugHTML(eq[0],0)}
 function abrirJugador(cat,idx){let j=plantillas[cat][idx];document.getElementById('mj-foto').src=j.foto;document.getElementById('mj-nombre').innerText=j.n;document.getElementById('mj-nombre2').innerText=j.n;document.getElementById('mj-dorsal').innerText="#"+j.d+" - "+j.pos;document.getElementById('mj-edad').innerText=j.edad;document.getElementById('mj-pos').innerText=j.pos;document.getElementById('mj-num').innerText="#"+j.d;document.getElementById('mj-cat').innerText=cat==="5-8"?"NIÑOS 5 A 8":cat==="ninas"?"NIÑAS":"NIÑOS 9 A 12";document.getElementById('mj-pierna').innerText=j.pierna;document.getElementById('mj-desc').innerText=j.desc;document.getElementById('mj-titulo-top').innerText=j.n+" - #"+j.d;document.getElementById('modal-jugador').style.display="block"}
@@ -301,13 +331,47 @@ document.getElementById('modal-confirmar').style.display="block"
 }
 function cerrarConfirmar(){document.getElementById('modal-confirmar').style.display="none"}
 function enviarWhatsApp(){
-let n=document.getElementById('inp-nombre').value;let pl=document.getElementById('c-plan').innerText;
-let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');ins.unshift({nombre:n,categoria:categoriaSeleccionada,plan:pl});localStorage.setItem('inscritos',JSON.stringify(ins));
-let txt=`*🏆 AC. RANCHO NUEVO* - ${n} - ${pl} - $${precioSeleccionado} MXN`;
+let n=document.getElementById('inp-nombre').value,f=document.getElementById('inp-fecha').value,cat=categoriaSeleccionada,padre=document.getElementById('inp-padre').value,tel=document.getElementById('inp-tel').value,curp=document.getElementById('inp-curp').value,esc=document.getElementById('inp-escolaridad').value;
+let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');
+ins.unshift({id:Date.now(),nombre:n,fecha:f,edad:calcularEdad(f),categoria:cat,padre:padre,tel:tel,curp:curp,escolaridad:esc,plan:document.getElementById('c-plan').innerText,foto:fotoBase64||"https://i.pravatar.cc/100?img=1"});
+localStorage.setItem('inscritos',JSON.stringify(ins));
+let txt=`*🏆 AC. RANCHO NUEVO* - ${n} - ${cat} - $${precioSeleccionado} MXN`;
 let url="https://api.whatsapp.com/send?phone=573242827963&text="+encodeURIComponent(txt);
 window.location.href=url;
 }
-function cargarAdmin(){let l=document.getElementById('listaAdmin'),ins=JSON.parse(localStorage.getItem('inscritos')||'[]');if(ins.length===0){l.innerHTML="<p style='text-align:center;color:#999;margin-top:30px'>Aún no hay inscritos</p>";return}l.innerHTML=ins.map(i=>`<div style="background:#fff;border:1.5px solid #efefef;border-radius:16px;padding:14px;margin-bottom:12px"><b>${i.nombre} - ${i.categoria}</b><br><span style="font-size:11px;color:#666">${i.plan}</span></div>`).join('')}
+function cargarAdmin(){
+let l=document.getElementById('listaAdmin'),ins=JSON.parse(localStorage.getItem('inscritos')||'[]');
+let filtrados=filtroActual==='todos'?ins:ins.filter(a=>a.categoria===filtroActual);
+document.getElementById('contadorAlumnos').innerText=filtrados.length+" alumnos";
+if(filtrados.length===0){l.innerHTML="<p style='text-align:center;color:#999;margin-top:20px;font-size:12px'>No hay alumnos en esta categoría.<br>Los nuevos inscritos aparecerán aquí.</p>";return}
+l.innerHTML=filtrados.map((a)=>{
+let realIdx=ins.indexOf(a);
+return `<div class="alumno-card"><img src="${a.foto||'https://i.pravatar.cc/100?img=1'}"><div class="alumno-info"><b>${a.nombre}</b><small>🎂 ${a.fecha||'-'} • ${a.edad||'-'} • ${a.categoria}</small><small>👨‍👩‍👧 ${a.padre||'-'} • 📞 ${a.tel||'-'}</small></div><button class="btn-editar" onclick="abrirEdit(${realIdx})">EDITAR</button></div>`}).join('');
+}
+function abrirEdit(idx){
+let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');let a=ins[idx];editIndex=idx;
+document.getElementById('edit-nombre').value=a.nombre;document.getElementById('edit-fecha').value=a.fecha||"";document.getElementById('edit-categoria').value=a.categoria;document.getElementById('edit-padre').value=a.padre||"";document.getElementById('edit-tel').value=a.tel||"";
+document.getElementById('modal-edit-alumno').style.display='flex';
+}
+function cerrarEdit(){document.getElementById('modal-edit-alumno').style.display='none';editIndex=null}
+function guardarEdit(){
+if(editIndex===null)return;
+let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');
+ins[editIndex].nombre=document.getElementById('edit-nombre').value;
+ins[editIndex].fecha=document.getElementById('edit-fecha').value;
+ins[editIndex].edad=calcularEdad(ins[editIndex].fecha);
+ins[editIndex].categoria=document.getElementById('edit-categoria').value;
+ins[editIndex].padre=document.getElementById('edit-padre').value;
+ins[editIndex].tel=document.getElementById('edit-tel').value;
+localStorage.setItem('inscritos',JSON.stringify(ins));
+cerrarEdit();cargarAdmin();showToast("✅ Alumno actualizado");
+}
+function eliminarAlumno(){
+if(editIndex===null)return;
+if(!confirm("¿Eliminar este alumno?"))return;
+let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');ins.splice(editIndex,1);localStorage.setItem('inscritos',JSON.stringify(ins));cerrarEdit();cargarAdmin();showToast("Alumno eliminado");
+}
+function borrarTodos(){if(!confirm("¿Borrar todos los alumnos?"))return;localStorage.removeItem('inscritos');cargarAdmin();showToast("Historial borrado")}
 window.onload=()=>{renderCancha('5-8')}
 </script>
 </body>
