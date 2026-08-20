@@ -84,11 +84,26 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 .area-grande.bottom{bottom:8px;border-bottom:none;border-radius:6px 6px 0 0}
 .formacion-label{text-align:center;color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:4px;text-shadow:0 1px 3px #000;position:relative;z-index:2}
 .linea-jug{display:flex;justify-content:space-around;align-items:flex-start;position:relative;z-index:2;padding:2px 0}
-.jug{width:72px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.jug{width:72px;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer}
 .jug-foto{width:52px;height:52px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
 .jug-dorsal{background:#ef4444;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:10px;margin-top:-8px;position:relative;z-index:3;border:1.5px solid #fff}
 .jug-nombre{color:#fff;font-size:9px;font-weight:800;margin-top:4px;line-height:1.1;text-shadow:0 1px 2px #000;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .jug-pos{color:#c8e6c9;font-size:8px;font-weight:700}
+.modal-jug{position:fixed;inset:0;background:#fff;z-index:120;display:none;overflow-y:auto}
+.jug-header{height:280px;position:relative;overflow:hidden;background:#0a0a0a}
+.jug-header img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+.jug-header-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 15%,rgba(0,0,0,0.2))}
+.jug-top-bar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px;z-index:2}
+.jug-top-bar .btn-back-jug{width:42px;height:42px;background:rgba(255,255,255,0.9);border:none;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.jug-info-over{position:absolute;bottom:0;left:0;right:0;padding:20px;display:flex;gap:14px;align-items:end;z-index:2}
+.jug-foto-grande{width:90px;height:90px;border-radius:18px;border:3px solid #fff;object-fit:cover;box-shadow:0 4px 15px rgba(0,0,0,0.5)}
+.jug-nombre-grande{color:#fff;font-size:22px;font-weight:900;line-height:1}
+.jug-dorsal-grande{color:#00ff88;font-size:14px;font-weight:800;margin-top:4px}
+.jug-detalle-box{padding:18px;max-width:500px;margin:0 auto}
+.jug-detalle-card{background:#f9f9f9;border:1.5px solid #efefef;border-radius:18px;padding:18px;margin-bottom:14px}
+.jug-detalle-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;font-size:13px}
+.jug-detalle-row:last-child{border-bottom:none}
+.jug-desc{font-size:13px;color:#444;line-height:1.5;margin-top:8px}
 </style>
 </head>
 <body>
@@ -106,7 +121,7 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="form-glide">
 <span class="label-titulo">2. Información del jugador</span>
 <input id="inp-nombre" type="text" placeholder="Nombre completo del niño">
-<div class="date-wrapper" id="dateWrapper"><span class="date-placeholder">Seleccionar fecha de nacimiento</span><input id="inp-fecha" type="date" oninput="checkDate(this)" onchange="checkDate(this)"></div>
+<input id="inp-fecha" type="date">
 <input id="inp-curp" type="text" placeholder="CURP">
 <select id="inp-escolaridad"><option value="">Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
 <span class="label-titulo">3. Padre / Tutor</span>
@@ -114,9 +129,9 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <input id="inp-tel" type="tel" placeholder="Teléfono WhatsApp">
 <span class="label-titulo">4. Plan de inscripción</span>
 <div class="plan-scroll">
-<div class="plan-carta" id="plan1" onclick="selectPlan('plan1',150)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$150 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (1) Niño</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
-<div class="plan-carta" id="plan2" onclick="selectPlan('plan2',250)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$250 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (2) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
-<div class="plan-carta" id="plan3" onclick="selectPlan('plan3',300)"><div class="check-verde">✓</div><div class="top-title">Cuota de inscripción</div><div class="dias-badge">30 Días</div><div class="precio">$300 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (3) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-carta" id="plan1" onclick="selectPlan('plan1',150)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$150 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (1) Niño</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-carta" id="plan2" onclick="selectPlan('plan2',250)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$250 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (2) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
+<div class="plan-carta" id="plan3" onclick="selectPlan('plan3',300)"><div class="check-verde">✓</div><div class="dias-badge">30 Días</div><div class="precio">$300 <span>MXN</span></div><div class="obs-title">Observaciones:</div><div class="obs-line">✓ (3) Niños</div><div class="incluye-title">Incluye:</div><ul class="incluye"><li>✓ Formacion tecnica y tactica</li><li>✓ Valores deportivos</li><li>✓ Material deportivo</li></ul><button class="btn-elegir">ELEGIR</button></div>
 </div>
 <button onclick="abrirConfirmar()" style="width:100%;margin-top:10px;background:#0a0a0a;color:#fff;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px">CONTINUAR INSCRIPCIÓN</button>
 </div>
@@ -134,14 +149,13 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <span class="label-titulo">Avisos importantes</span>
 <div class="aviso-lista">
 <div class="aviso-card"><div class="aviso-titulo">💡 TIP</div><div class="aviso-text">Traer tachones limpios y botella de agua grande. Llegar 15 min antes.</div></div>
-<div class="aviso-card"><div class="aviso-titulo">⏰ CAMBIO DE HORARIO</div><div class="aviso-text">Sábado 23 entrenamos con uniforme blanco oficial de Ac. Rancho Nuevo.</div></div>
-<div class="aviso-card"><div class="aviso-titulo">👕 UNIFORME</div><div class="aviso-text">Lunes y miércoles: uniforme rojo. Viernes: playera de entrenamiento negra.</div></div>
+<div class="aviso-card"><div class="aviso-titulo">⏰ CAMBIO DE HORARIO</div><div class="aviso-text">Sábado 23 entrenamos con uniforme blanco oficial.</div></div>
+<div class="aviso-card"><div class="aviso-titulo">👕 UNIFORME</div><div class="aviso-text">Lunes y miércoles: uniforme rojo. Viernes: playera negra.</div></div>
 <div class="aviso-card"><div class="aviso-titulo">📢 AVISO</div><div class="aviso-text">Padres favor de no ingresar a cancha durante entrenamiento.</div></div>
 </div>
 </div>
-</div>
-
-<div id="view-equipo" class="view">
+  </div>
+  <div id="view-equipo" class="view">
 <div class="container">
 <div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Equipo - Ac. Rancho Nuevo</h2></div>
 <span class="label-titulo">Selecciona categoría</span>
@@ -160,8 +174,29 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <div class="formacion-label">NUESTRA PORTERÍA - FORMACIÓN 4-4-2</div>
 </div>
 </div>
-  </div>
-  <div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
+</div>
+
+<div id="modal-jugador" class="modal-jug">
+<div class="jug-header">
+<img id="mj-foto-banner" src="">
+<div class="jug-header-overlay"></div>
+<div class="jug-top-bar"><div class="btn-back-jug" onclick="cerrarJugador()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div style="color:#fff;font-size:12px;font-weight:700;background:rgba(0,0,0,0.5);padding:6px 10px;border-radius:20px" id="mj-fecha-top">20 Agosto 2026</div></div>
+<div class="jug-info-over"><img id="mj-foto" class="jug-foto-grande" src=""><div><div id="mj-nombre" class="jug-nombre-grande">NOMBRE</div><div id="mj-dorsal" class="jug-dorsal-grande">#10 - DELANTERO</div></div></div>
+</div>
+<div class="jug-detalle-box">
+<div class="jug-detalle-card">
+<div class="jug-detalle-row"><span style="color:#888">Nombre completo</span><b id="mj-nombre2">-</b></div>
+<div class="jug-detalle-row"><span style="color:#888">Edad</span><b id="mj-edad">-</b></div>
+<div class="jug-detalle-row"><span style="color:#888">Posición</span><b id="mj-pos">-</b></div>
+<div class="jug-detalle-row"><span style="color:#888">Dorsal</span><b id="mj-num">-</b></div>
+<div class="jug-detalle-row"><span style="color:#888">Categoría</span><b id="mj-cat">-</b></div>
+</div>
+<div class="jug-detalle-card"><h4 style="font-size:11px;color:#ef4444;font-weight:800;margin-bottom:6px">DESCRIPCIÓN</h4><p id="mj-desc" class="jug-desc">Jugador destacado de la academia...</p></div>
+<button onclick="cerrarJugador()" style="width:100%;background:#0a0a0a;color:#fff;border:none;padding:14px;border-radius:12px;font-weight:800;margin-top:6px">REGRESAR A LA CANCHA</button>
+</div>
+</div>
+
+<div id="modal-confirmar" style="position:fixed;inset:0;background:#fff;z-index:100;display:none;overflow-y:auto">
 <div style="padding:20px 16px 10px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:14px;position:sticky;top:0;background:#fff"><div class="btn-back" onclick="cerrarConfirmar()"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><div><h2 style="font-size:18px;font-weight:900">Confirmar - Ac. Rancho Nuevo</h2><p style="font-size:12px;color:#888">Revisa tus datos</p></div></div>
 <div style="padding:16px;max-width:500px;margin:0 auto">
 <img id="c-foto" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #22c55e;margin:0 auto 10px;display:none">
@@ -171,30 +206,30 @@ body{background:#fff;color:#0a0a0a;padding-bottom:80px}
 <button onclick="enviarWhatsApp()" style="width:100%;background:#22c55e;color:#fff;border:none;padding:16px;border-radius:14px;font-weight:900;font-size:15px;margin-top:8px">CONTINUAR</button>
 </div>
 </div>
-
 <div id="view-admin" class="view"><div class="container"><div class="top-bar"><div class="btn-back" onclick="showView('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg></div><h2 style="font-size:20px;font-weight:900">Admin - Ac. Rancho Nuevo</h2></div><div id="listaAdmin"></div></div></div>
 <div id="toast" style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0a0a;color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:0.3s;z-index:200;pointer-events:none;max-width:90%;text-align:center"></div>
 <div id="view-noticias" class="view"><div class="container">Noticias</div></div>
 <div class="bottom-nav"><button class="active" onclick="showView('inicio')">🏠<br>INICIO</button><button onclick="showView('admin')">⚙️<br>ADMIN</button></div>
 
 <script>
-let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="";
+let planSeleccionado=null,precioSeleccionado=0,categoriaSeleccionada="",fechaInicioGlobal="",fechaVenceGlobal="",fotoBase64="",categoriaEquipoActual="5-8";
 const plantillas={
-"5-8":[{n:"Santi",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=1"},{n:"Mateo",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=2"},{n:"Leo",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=3"},{n:"Iker",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=4"},{n:"Bruno",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=5"},{n:"Gael",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=6"},{n:"Thiago",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=7"},{n:"Liam",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=8"},{n:"Dylan",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=9"},{n:"Noah",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=10"},{n:"Luca",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=11"}],
-"ninas":[{n:"Sofia",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=23"},{n:"Valeria",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=24"},{n:"Camila",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=25"},{n:"Ximena",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=26"},{n:"Regina",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=27"},{n:"Fernanda",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=28"},{n:"Isabella",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=29"},{n:"Mia",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=30"},{n:"Renata",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=31"},{n:"Victoria",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=32"},{n:"Luciana",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=33"}],
-"9-12":[{n:"Emiliano",d:"1",pos:"POR",foto:"https://i.pravatar.cc/100?img=12"},{n:"Sebastian",d:"2",pos:"LD",foto:"https://i.pravatar.cc/100?img=13"},{n:"Diego",d:"4",pos:"DFC",foto:"https://i.pravatar.cc/100?img=14"},{n:"Johan",d:"5",pos:"DFC",foto:"https://i.pravatar.cc/100?img=15"},{n:"Angel",d:"3",pos:"LI",foto:"https://i.pravatar.cc/100?img=16"},{n:"Kevin",d:"7",pos:"MD",foto:"https://i.pravatar.cc/100?img=17"},{n:"Axel",d:"6",pos:"MC",foto:"https://i.pravatar.cc/100?img=18"},{n:"Alan",d:"8",pos:"MC",foto:"https://i.pravatar.cc/100?img=19"},{n:"Erick",d:"11",pos:"MI",foto:"https://i.pravatar.cc/100?img=20"},{n:"Hugo",d:"9",pos:"DC",foto:"https://i.pravatar.cc/100?img=21"},{n:"Cristopher",d:"10",pos:"DC",foto:"https://i.pravatar.cc/100?img=22"}]
+"5-8":[{n:"Santi",d:"1",pos:"POR",edad:"7 años",foto:"https://i.pravatar.cc/100?img=1",desc:"Portero ágil, grandes reflejos y líder desde atrás. Muy seguro con los pies."},{n:"Mateo",d:"2",pos:"LD",edad:"7 años",foto:"https://i.pravatar.cc/100?img=2",desc:"Lateral derecho rápido, sube y baja toda la banda. Buen centro."},{n:"Leo",d:"4",pos:"DFC",edad:"8 años",foto:"https://i.pravatar.cc/100?img=3",desc:"Defensa central fuerte en el juego aéreo y muy ordenado."},{n:"Iker",d:"5",pos:"DFC",edad:"8 años",foto:"https://i.pravatar.cc/100?img=4",desc:"Capitán de la defensa, buena salida de balón."},{n:"Bruno",d:"3",pos:"LI",edad:"7 años",foto:"https://i.pravatar.cc/100?img=5",desc:"Lateral izquierdo con mucha garra y buen disparo."},{n:"Gael",d:"7",pos:"MD",edad:"8 años",foto:"https://i.pravatar.cc/100?img=6",desc:"Extremo derecho habilidoso, regate y gol."},{n:"Thiago",d:"6",pos:"MC",edad:"8 años",foto:"https://i.pravatar.cc/100?img=7",desc:"Cerebro del equipo, distribuye juego y recupera balones."},{n:"Liam",d:"8",pos:"MC",edad:"7 años",foto:"https://i.pravatar.cc/100?img=8",desc:"Mediocentro de llegada, gran disparo de media distancia."},{n:"Dylan",d:"11",pos:"MI",edad:"8 años",foto:"https://i.pravatar.cc/100?img=9",desc:"Extremo izquierdo velocista, desborda siempre."},{n:"Noah",d:"9",pos:"DC",edad:"8 años",foto:"https://i.pravatar.cc/100?img=10",desc:"Delantero goleador, olfato de gol nato."},{n:"Luca",d:"10",pos:"DC",edad:"8 años",foto:"https://i.pravatar.cc/100?img=11",desc:"Segundo delantero, asiste y define con calidad."}],
+"ninas":[{n:"Sofia",d:"1",pos:"POR",edad:"10 años",foto:"https://i.pravatar.cc/100?img=23",desc:"Portera segura, muy valiente en el uno contra uno."},{n:"Valeria",d:"2",pos:"LD",edad:"11 años",foto:"https://i.pravatar.cc/100?img=24",desc:"Lateral incansable, muy táctica."},{n:"Camila",d:"4",pos:"DFC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=25",desc:"Defensa central contundente."},{n:"Ximena",d:"5",pos:"DFC",edad:"11 años",foto:"https://i.pravatar.cc/100?img=26",desc:"Jefa de la zaga, gran juego aéreo."},{n:"Regina",d:"3",pos:"LI",edad:"10 años",foto:"https://i.pravatar.cc/100?img=27",desc:"Lateral con gran proyección ofensiva."},{n:"Fernanda",d:"7",pos:"MD",edad:"12 años",foto:"https://i.pravatar.cc/100?img=28",desc:"Extrema con mucho gol."},{n:"Isabella",d:"6",pos:"MC",edad:"11 años",foto:"https://i.pravatar.cc/100?img=29",desc:"Mediocentro creativa, mucha visión."},{n:"Mia",d:"8",pos:"MC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=30",desc:"Box to box, llega a las dos áreas."},{n:"Renata",d:"11",pos:"MI",edad:"11 años",foto:"https://i.pravatar.cc/100?img=31",desc:"Extrema izquierda desequilibrante."},{n:"Victoria",d:"9",pos:"DC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=32",desc:"Delantera killer del área."},{n:"Luciana",d:"10",pos:"DC",edad:"11 años",foto:"https://i.pravatar.cc/100?img=33",desc:"Segunda punta con gran técnica."}],
+"9-12":[{n:"Emiliano",d:"1",pos:"POR",edad:"11 años",foto:"https://i.pravatar.cc/100?img=12",desc:"Portero con gran envergadura."},{n:"Sebastian",d:"2",pos:"LD",edad:"12 años",foto:"https://i.pravatar.cc/100?img=13",desc:"Carrilero con mucho recorrido."},{n:"Diego",d:"4",pos:"DFC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=14",desc:"Central rápido al corte."},{n:"Johan",d:"5",pos:"DFC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=15",desc:"Central zurdo elegante."},{n:"Angel",d:"3",pos:"LI",edad:"11 años",foto:"https://i.pravatar.cc/100?img=16",desc:"Lateral con gran disparo."},{n:"Kevin",d:"7",pos:"MD",edad:"12 años",foto:"https://i.pravatar.cc/100?img=17",desc:"Extremo goleador."},{n:"Axel",d:"6",pos:"MC",edad:"11 años",foto:"https://i.pravatar.cc/100?img=18",desc:"Pivote que equilibra."},{n:"Alan",d:"8",pos:"MC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=19",desc:"Interior con llegada."},{n:"Erick",d:"11",pos:"MI",edad:"11 años",foto:"https://i.pravatar.cc/100?img=20",desc:"Extremo con desborde."},{n:"Hugo",d:"9",pos:"DC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=21",desc:"9 clásico, rematador."},{n:"Cristopher",d:"10",pos:"DC",edad:"12 años",foto:"https://i.pravatar.cc/100?img=22",desc:"Mediapunta con magia."}]
 };
-function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin')cargarAdmin();if(v==='equipo')renderCancha('5-8')}
+function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');if(v==='admin')cargarAdmin();if(v==='equipo')renderCancha(categoriaEquipoActual)}
 function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active');categoriaSeleccionada=el.querySelector('b').innerText}
 function selectPlan(id,precio){document.querySelectorAll('.plan-carta').forEach(c=>c.classList.remove('active'));document.getElementById(id).classList.add('active');planSeleccionado=id;precioSeleccionado=precio}
 function calcularEdad(f){if(!f)return"-";let h=new Date(),n=new Date(f),e=h.getFullYear()-n.getFullYear(),m=h.getMonth()-n.getMonth();if(m<0||(m===0&&h.getDate()<n.getDate()))e--;return e+" años"}
 function formatearFecha(d){return d.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}
-function checkDate(i){let w=document.getElementById('dateWrapper');if(i.value)w.classList.add('has-value');else w.classList.remove('has-value')}
 function showToast(m){let t=document.getElementById('toast');t.innerText=m;t.style.opacity=1;t.style.transform="translateX(-50%) translateY(0)";setTimeout(()=>{t.style.opacity=0;t.style.transform="translateX(-50%) translateY(20px)"},3000)}
 function previewFoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(ev){fotoBase64=ev.target.result;document.getElementById('imgPreview').src=fotoBase64;document.getElementById('fotoPreview').classList.add('has-foto')};r.readAsDataURL(f)}
-function selectEquipoCat(cat){document.querySelectorAll('.btn-cat-eq').forEach(b=>b.classList.remove('active'));document.getElementById('cat-'+cat).classList.add('active');renderCancha(cat)}
-function crearJugHTML(j){return `<div class="jug"><img class="jug-foto" src="${j.foto}"><div class="jug-dorsal">${j.d}</div><div class="jug-nombre">${j.n}</div><div class="jug-pos">${j.pos}</div></div>`}
-function renderCancha(cat){let eq=plantillas[cat];if(!eq)return;document.getElementById('linea-delanteros').innerHTML=eq.slice(9,11).map(crearJugHTML).join('');document.getElementById('linea-medios').innerHTML=eq.slice(5,9).map(crearJugHTML).join('');document.getElementById('linea-defensas').innerHTML=eq.slice(1,5).map(crearJugHTML).join('');document.getElementById('linea-portero').innerHTML=crearJugHTML(eq[0])}
+function selectEquipoCat(cat){document.querySelectorAll('.btn-cat-eq').forEach(b=>b.classList.remove('active'));document.getElementById('cat-'+cat).classList.add('active');categoriaEquipoActual=cat;renderCancha(cat)}
+function crearJugHTML(j,idx){return `<div class="jug" onclick="abrirJugador('${categoriaEquipoActual}',${idx})"><img class="jug-foto" src="${j.foto}"><div class="jug-dorsal">${j.d}</div><div class="jug-nombre">${j.n}</div><div class="jug-pos">${j.pos}</div></div>`}
+function renderCancha(cat){let eq=plantillas[cat];if(!eq)return;document.getElementById('linea-delanteros').innerHTML=eq.slice(9,11).map((j,i)=>crearJugHTML(j,9+i)).join('');document.getElementById('linea-medios').innerHTML=eq.slice(5,9).map((j,i)=>crearJugHTML(j,5+i)).join('');document.getElementById('linea-defensas').innerHTML=eq.slice(1,5).map((j,i)=>crearJugHTML(j,1+i)).join('');document.getElementById('linea-portero').innerHTML=crearJugHTML(eq[0],0)}
+function abrirJugador(cat,idx){let j=plantillas[cat][idx];document.getElementById('mj-foto').src=j.foto;document.getElementById('mj-foto-banner').src=j.foto;document.getElementById('mj-nombre').innerText=j.n;document.getElementById('mj-nombre2').innerText=j.n;document.getElementById('mj-dorsal').innerText="#"+j.d+" - "+j.pos;document.getElementById('mj-edad').innerText=j.edad;document.getElementById('mj-pos').innerText=j.pos;document.getElementById('mj-num').innerText="#"+j.d;document.getElementById('mj-cat').innerText=cat==="5-8"?"NIÑOS 5 A 8":cat==="ninas"?"NIÑAS":"NIÑOS 9 A 12";document.getElementById('mj-desc').innerText=j.desc;document.getElementById('mj-fecha-top').innerText=new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});document.getElementById('modal-jugador').style.display="block"}
+function cerrarJugador(){document.getElementById('modal-jugador').style.display="none"}
 function abrirConfirmar(){
 let n=document.getElementById('inp-nombre'),f=document.getElementById('inp-fecha'),c=document.getElementById('inp-curp'),es=document.getElementById('inp-escolaridad'),p=document.getElementById('inp-padre'),t=document.getElementById('inp-tel');
 if(!categoriaSeleccionada){showToast("⚠️ Selecciona una categoría");return}
@@ -217,7 +252,7 @@ function cerrarConfirmar(){document.getElementById('modal-confirmar').style.disp
 function enviarWhatsApp(){
 let n=document.getElementById('inp-nombre').value,f=document.getElementById('inp-fecha').value,e=document.getElementById('c-edad').innerText,c=document.getElementById('inp-curp').value,es=document.getElementById('inp-escolaridad').value,p=document.getElementById('inp-padre').value,t=document.getElementById('inp-tel').value,pl=document.getElementById('c-plan').innerText;
 let ins=JSON.parse(localStorage.getItem('inscritos')||'[]');ins.unshift({nombre:n,fecha:f,edad:e,curp:c,esc:es,categoria:categoriaSeleccionada,padre:p,tel:t,plan:pl,inicio:fechaInicioGlobal,vence:fechaVenceGlobal,total:precioSeleccionado,foto:fotoBase64,fechaRegistro:new Date().toLocaleString()});localStorage.setItem('inscritos',JSON.stringify(ins));
-let txt=`*🏆 AC. RANCHO NUEVO*\n━━━━━━━━━━━━━━━━━━━━\n🧾 *FACTURA DE INSCRIPCIÓN*\n━━━━━━━━━━━━━━━━━━━━\n\n👦 *DATOS DEL PARTICIPANTE*\n- Nombre: *${n}*\n- Nacimiento: ${f} (${e})\n- CURP: ${c}\n- Escolaridad: ${es}\n- Categoría: *${categoriaSeleccionada}*\n\n👨‍👩‍👦 *DATOS DEL PADRE / TUTOR*\n- Nombre: *${p}*\n- WhatsApp: ${t}\n\n💳 *RESUMEN DE PAGO*\n- Plan: *${pl}*\n- Inicio: 📅 ${fechaInicioGlobal}\n- Vencimiento: 📅 ${fechaVenceGlobal}\n- Subtotal: $${precioSeleccionado} MXN\n━━━━━━━━━━━━━━━━━━━━\n- *TOTAL A PAGAR: $${precioSeleccionado} MXN* 💰\n━━━━━━━━━━━━━━━━━━━━\n\n✅ *Estado: Pendiente de validación*\n📍 *Ac. Rancho Nuevo*`;
+let txt=`*🏆 AC. RANCHO NUEVO*\n*FACTURA*\nNombre: ${n}\nEdad: ${e}\nCategoria: ${categoriaSeleccionada}\nPlan: ${pl}\nTotal: $${precioSeleccionado} MXN`;
 let url="https://api.whatsapp.com/send?phone=573242827963&text="+encodeURIComponent(txt);
 window.location.href=url;
 }
