@@ -9,127 +9,92 @@
   body{background:#0f172a;color:white;padding-bottom:80px}
   .hero{position:relative;height:260px;overflow:hidden}
   .hero img{width:100%;height:100%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(15,23,42,1), rgba(0,0,0,0.2));display:flex;flex-direction:column;justify-content:end;padding:20px}
-  .hero-overlay h1{font-size:26px;font-weight:900;line-height:1}
-  .hero-overlay p{color:#facc15;font-weight:700;margin-top:5px;font-size:13px}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, #0f172a, rgba(0,0,0,0.1));display:flex;flex-direction:column;justify-content:end;padding:20px}
+  .hero-overlay h1{font-size:26px;font-weight:900}
   .container{padding:16px}
-  .grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+  .grid{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
   .grid::-webkit-scrollbar{display:none}
-  .card{min-width:105px;height:85px;background:#1e293b;padding:10px;border-radius:14px;text-align:center;cursor:pointer;border:1px solid #334155;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;align-items:center}
-  .card span{font-size:20px;margin-bottom:4px}.card h3{font-size:10px;font-weight:800}
+  .card{min-width:105px;height:85px;background:#1e293b;border:1px solid #334155;border-radius:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;flex-shrink:0}
+  .card span{font-size:20px}.card h3{font-size:10px;margin-top:4px}
   .view{display:none}.view.active{display:block}
   .form{background:#1e293b;padding:16px;border-radius:16px;margin-top:10px}
-  .form input,.form select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;background:#0f172a;color:white;border:1px solid #334155}
-  .label{font-size:11px;color:#facc15;font-weight:700;margin-top:14px;display:block;letter-spacing:1px}
-  .btn{background:#facc15;color:#0f172a;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;margin-top:16px;cursor:pointer}
+  .form input,.form select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #334155;background:#0f172a;color:white}
+  .label{font-size:11px;color:#facc15;font-weight:800;margin-top:15px;display:block}
+  .btn{background:#facc15;color:#0f172a;padding:14px;width:100%;border:none;border-radius:10px;font-weight:900;margin-top:16px}
   .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#1e293b;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #334155}
   .bottom-nav button{background:none;border:none;color:#94a3b8;font-weight:700;font-size:11px}
   .bottom-nav button.active{color:#facc15}
-
-  /* ESTILOS NUEVOS REGISTRO */
-  .cat-selector{display:flex;gap:10px;overflow-x:auto;padding:5px 0 10px 0;scrollbar-width:none}
+  .cat-selector{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:8px 0}
   .cat-selector::-webkit-scrollbar{display:none}
-  .cat-opt{min-width:140px;background:#1e293b;border:2px solid #334155;border-radius:12px;padding:14px;text-align:center;cursor:pointer;flex-shrink:0}
+  .cat-opt{min-width:145px;background:#1e293b;border:2px solid #334155;border-radius:12px;padding:14px;text-align:center;flex-shrink:0;cursor:pointer}
   .cat-opt.active{border-color:#facc15;background:#facc15;color:#0f172a}
-  .cat-opt b{font-size:12px;display:block}
-  .cat-opt small{font-size:10px;opacity:0.8}
-  .plan-scroll{display:flex;gap:12px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .cat-opt b{font-size:12px;display:block}.cat-opt small{font-size:10px}
+  .plan-scroll{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:10px 0}
   .plan-scroll::-webkit-scrollbar{display:none}
-  .plan-card{min-width:160px;background:#0f172a;border:1px solid #334155;border-radius:14px;padding:14px;flex-shrink:0}
+  .plan-card{min-width:165px;background:#0f172a;border:1px solid #334155;border-radius:14px;padding:14px;flex-shrink:0;cursor:pointer}
   .plan-card.active{border-color:#facc15;border-width:2px}
-  .plan-card h4{font-size:13px;color:#facc15}
-  .plan-card p{font-size:11px;color:#94a3b8;margin-top:4px}
-  .plan-card .precio{font-size:18px;font-weight:900;margin-top:8px}
+  .plan-card h4{font-size:13px;color:#facc15}.plan-card p{font-size:11px;color:#94a3b8;margin-top:3px}.precio{font-size:18px;font-weight:900;margin-top:8px}
 </style>
 </head>
 <body>
 
 <div id="view-inicio" class="view active">
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800" alt="Niños jugando fútbol">
-    <div class="hero-overlay"><h1>¡BIENVENIDOS<br>CAMPEONES!</h1><p>FORMAMOS JUGADORES, CREAMOS PERSONAS</p></div>
-  </div>
-  <div class="container">
-    <p style="font-size:12px;color:#94a3b8;margin-bottom:8px">EXPLORA</p>
-    <div class="grid">
-      <div class="card" onclick="showView('registro')"><span>📝</span><h3>REGISTRARSE</h3></div>
-      <div class="card" onclick="showView('clases')"><span>⚽</span><h3>CLASES</h3></div>
-      <div class="card" onclick="showView('equipo')"><span>👕</span><h3>EQUIPO</h3></div>
-      <div class="card" onclick="showView('noticias')"><span>📰</span><h3>NOTICIAS</h3></div>
-    </div>
-  </div>
+  <div class="hero"><img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800"><div class="hero-overlay"><h1>¡BIENVENIDOS<br>CAMPEONES!</h1><p style="color:#facc15;font-size:13px;font-weight:700">FORMAMOS JUGADORES</p></div></div>
+  <div class="container"><div class="grid">
+    <div class="card" onclick="showView('registro')"><span>📝</span><h3>REGISTRARSE</h3></div>
+    <div class="card" onclick="showView('clases')"><span>⚽</span><h3>CLASES</h3></div>
+    <div class="card" onclick="showView('equipo')"><span>👕</span><h3>EQUIPO</h3></div>
+    <div class="card" onclick="showView('noticias')"><span>📰</span><h3>NOTICIAS</h3></div>
+  </div></div>
 </div>
 
-<!-- VISTA REGISTRO NUEVA -->
 <div id="view-registro" class="view">
   <div class="container">
-    <h2 style="font-size:20px">Inscripción</h2>
-    
-    <span class="label">1. SELECCIONA LA CATEGORÍA</span>
+    <h2>Inscripción</h2>
+    <span class="label">1. CATEGORÍA DE TU NIÑO</span>
     <div class="cat-selector">
-      <div class="cat-opt active" onclick="selectCat(this)"><b>NIÑOS 5 A 8</b><small>Mixto iniciación</small></div>
+      <div class="cat-opt active" onclick="selectCat(this)"><b>NIÑOS 5 A 8 AÑOS</b><small>Iniciación</small></div>
       <div class="cat-opt" onclick="selectCat(this)"><b>NIÑAS</b><small>Todas las edades</small></div>
-      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑOS 9 A 12</b><small>Formación avanzada</small></div>
+      <div class="cat-opt" onclick="selectCat(this)"><b>NIÑOS 9 A 12 AÑOS</b><small>Avanzado</small></div>
     </div>
 
     <div class="form">
       <span class="label">2. INFORMACIÓN DEL JUGADOR</span>
-      <input type="text" placeholder="Nombre completo del niño">
-      <input type="date" placeholder="Fecha de nacimiento">
-      <input type="text" placeholder="CURP del niño" style="text-transform:uppercase">
-      <select>
-        <option>Escolaridad</option>
-        <option>Preescolar</option>
-        <option>Primaria 1°-3°</option>
-        <option>Primaria 4°-6°</option>
-        <option>Secundaria</option>
-      </select>
+      <input type="text" id="nombreNino" placeholder="Nombre completo del niño">
+      <input type="date" id="fechaNac" placeholder="Fecha de nacimiento">
+      <input type="text" id="curp" placeholder="CURP">
+      <select id="escolaridad"><option>Escolaridad</option><option>Preescolar</option><option>Primaria</option><option>Secundaria</option></select>
 
-      <span class="label">3. INFORMACIÓN DEL PADRE / TUTOR</span>
-      <input type="text" placeholder="Nombre completo del padre/tutor">
-      <input type="tel" placeholder="Teléfono WhatsApp">
+      <span class="label">3. INFORMACIÓN DEL PADRE O TUTOR</span>
+      <input type="text" id="nombrePadre" placeholder="Nombre completo del padre/tutor">
+      <input type="tel" id="telefono" placeholder="Teléfono WhatsApp">
 
-      <span class="label">4. ELIGE TU PLAN DE INSCRIPCIÓN</span>
+      <span class="label">4. PLAN DE INSCRIPCIÓN</span>
       <div class="plan-scroll">
-        <div class="plan-card active" onclick="selectPlan(this)">
-          <h4>PLAN BÁSICO</h4><p>2 días por semana</p><div class="precio">$450/mes</div>
-        </div>
-        <div class="plan-card" onclick="selectPlan(this)">
-          <h4>PLAN PRO</h4><p>3 días + uniforme</p><div class="precio">$650/mes</div>
-        </div>
-        <div class="plan-card" onclick="selectPlan(this)">
-          <h4>PLAN ÉLITE</h4><p>5 días + torneos</p><div class="precio">$850/mes</div>
-        </div>
+        <div class="plan-card active" onclick="selectPlan(this)"><h4>PLAN BÁSICO</h4><p>2 días x semana</p><div class="precio">$450/mes</div></div>
+        <div class="plan-card" onclick="selectPlan(this)"><h4>PLAN PRO</h4><p>3 días + uniforme</p><div class="precio">$650/mes</div></div>
+        <div class="plan-card" onclick="selectPlan(this)"><h4>PLAN ÉLITE</h4><p>5 días + torneos</p><div class="precio">$850/mes</div></div>
       </div>
-
-      <button class="btn" onclick="alert('¡Datos guardados! Ahora dime que sigue para los planes')">CONTINUAR INSCRIPCIÓN →</button>
+      <button class="btn" onclick="enviar()">CONTINUAR →</button>
     </div>
   </div>
 </div>
 
-<div id="view-clases" class="view"><div class="container"><h2>Clases</h2><div class="form">Lunes, Miércoles y Viernes</div></div></div>
-<div id="view-equipo" class="view"><div class="container"><h2>Equipo</h2><div class="form">Plantilla</div></div></div>
+<div id="view-clases" class="view"><div class="container"><h2>Clases</h2><div class="form">Horarios</div></div></div>
+<div id="view-equipo" class="view"><div class="container"><h2>Equipo</h2><div class="form">Jugadores</div></div></div>
 <div id="view-noticias" class="view"><div class="container"><h2>Noticias</h2><div class="form">Noticias</div></div></div>
-<div id="view-admin" class="view"><div class="container"><h2>Panel Admin</h2><div class="form"><p>Panel para configurar categorías y planes</p></div></div></div>
+<div id="view-admin" class="view"><div class="container"><h2>Admin</h2><div class="form">Configuración</div></div></div>
 
 <div class="bottom-nav">
-  <button id="btn-inicio" class="active" onclick="showView('inicio')">🏠<br>INICIO</button>
-  <button id="btn-admin" onclick="showView('admin')">⚙️<br>ADMIN</button>
+  <button class="active" onclick="showView('inicio')">🏠<br>INICIO</button>
+  <button onclick="showView('admin')">⚙️<br>ADMIN</button>
 </div>
 
 <script>
-function showView(v){
-  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
-  document.getElementById('view-'+v).classList.add('active');
-}
-function selectCat(el){
-  document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
-}
-function selectPlan(el){
-  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
-}
+function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active')}
+function selectCat(el){document.querySelectorAll('.cat-opt').forEach(c=>c.classList.remove('active'));el.classList.add('active')}
+function selectPlan(el){document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('active'));el.classList.add('active')}
+function enviar(){alert('¡Registro listo! Ahora dime tus planes reales para ponerlos.')}
 </script>
 </body>
 </html>
